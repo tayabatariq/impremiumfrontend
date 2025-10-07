@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Business Dashboard</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .sidebar {
+      background-color: #D51B1C;
+      color: #fff;
+    }
+
+    .sidebar .nav-link {
+      color: #fff;
+      margin: 4px 0;
+    }
+
+    .sidebar .nav-link.active,
+    .sidebar .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .output-box {
+      border: 1px dashed #ccc;
+      min-height: 150px;
+      border-radius: 8px;
+      padding: 15px;
+      background: #fff;
+      white-space: pre-line;
+    }
+
+    /* Initially hide dashboard */
+    #dashboardContainer {
+      display: none;
+    }
+
+    /* Center loading spinner */
+    #loadingScreen {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+  <style>
+    body {
+      height: inherit;
+      width: 100%;
+    }
+
+    #main-content {
+      display: none;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    .logo {
+      width: 100px;
+      height: 100px;
+      background: url('preloader.png') no-repeat center/cover;
+      animation: logoAnim 7s ease forwards;
+      animation: zoomEffect 3s infinite ease-in-out;
+    }
+
+    @keyframes logoAnim {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      15% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      85% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+    }
+
+    @keyframes zoomEffect {
+      0% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.08);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+  </style>
+
+  <style>
+    .nav-images {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+    }
+
+    .nav-images a {
+      width: 80px;
+    }
+
+    .nav-images img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .nav-images img:hover {
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-images {
+        flex-direction: row;
+        flex-wrap: wrap !important;
+        justify-content: start;
+        gap: 2rem;
+      }
+
+      .nav-images a {
+        flex: 1 1 30%;
+        max-width: 80px;
+      }
+    }
+
+    .nav-images .nav-link {
+      display: inline-block;
+      padding: 6px;
+      background-color: #ffffff;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .navbardashboard {
+      background-color: #D51B1C !important;
+    }
+
+    .nav-images .nav-link img {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+    }
+
+    .nav-images .nav-link:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar {
+      background-color: #D51B1C;
+      color: #fff;
+    }
+
+    @media (max-width: 991px) {
+      .sidebar {
+        width: 100%;
+        order: -1;
+        margin-bottom: 15px;
+      }
+    }
+
+    .bgaitol {
+      background-color: rgb(3, 45, 73) !important;
+    }
+
+    .menu-icon {
+      font-size: 3rem;
+      font-weight: bold;
+    }
+
+    .signout {
+      margin-top: 1rem !important;
+      font-weight: 400 !important;
+      color: #333;
+      background-color: transparent;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease-in-out;
+      cursor: pointer;
+    }
+
+    .signout:hover {
+      background-color: #f44336;
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+      transform: translateY(-2px);
+    }
+
+    .bgtiktok {
+      background-color: rgb(228, 228, 228) !important;
+    }
+
+    footer {
+      background-color: #000;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      font-weight: 300;
+      font-size: 14px;
+      padding: 3rem 10rem;
+    }
+
+    :root {
+      --brand-red: #D51B1C;
+      --brand-white: #ffffff;
+    }
+
+    .brand-header {
+      background: var(--brand-red);
+      color: var(--brand-white)
+    }
+
+    .btn-brand {
+      background: var(--brand-red);
+      color: var(--brand-white);
+      border: 0
+    }
+
+    .task-card {
+      border-left: 4px solid var(--brand-red);
+    }
+
+    .progress {
+      height: 12px
+    }
+  </style>
+  <style>
+    .navbar {
+      background-color: #d32f2f;
+    }
+
+    .navbar-brand,
+    .nav-link {
+      color: white !important;
+    }
+
+    .card {
+      border: 1px solid #e0e0e0;
+      border-radius: 12px;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    .card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-title {
+      color: #d32f2f;
+      font-weight: bold;
+    }
+  </style>
+  <style>
+    .navbar-brand,
+    .nav-link {
+      color: white !important;
+    }
+
+    .task-card {
+      border-radius: 12px;
+      transition: 0.2s ease-in-out;
+    }
+
+    .task-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress {
+      height: 8px;
+    }
+     @media (max-width: 991px) {
+            .sidebar {
+                width: 100%;
+                order: -1;
+                margin-bottom: 15px;
+                position: static !important;
+                height: auto !important;
+            }
+
+            footer {
+                padding: 1rem 3rem !important;
+            }
+        }
+  </style>
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <!-- Preloader -->
+  <div id="preloader">
+    <div class="logo"></div>
+  </div>
+
+  <!-- Loading -->
+  <div id="loadingScreen">
+    <div class="text-center">
+      <div class="spinner-border text-danger" role="status"></div>
+      <p class="mt-2 text-muted">Checking login...</p>
+    </div>
+  </div>
+
+  <!-- Dashboard -->
+  <div id="dashboardContainer" style="background-color: white;">
+    <!-- Top Navbar -->
+    <nav class="navbar navbardashboard shadow-sm px-3">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h5 ">
+          <span class="me-3 text-white small" id="welcomeMsg">
+            <br> <strong>User</strong>
+          </span>
+        </span>
+
+        <div>
+          <button class="btn btn-lg text-white d-block d-md-none" type="button" data-bs-toggle="offcanvas"
+            data-bs-target="#mobileSidebar">
+            <i class="bi bi-list menu-icon"></i>
+          </button>
+          <p onclick="logout()" class="text-white signout">
+            Sign Out <i class="ri-settings-2-line"></i>
+          </p>
+        </div>
+      </div>
+
+      <!-- Mobile Sidebar -->
+      <div style="background-color:#D51B1C; color: white;" class="offcanvas offcanvas-end" tabindex="-1"
+        id="mobileSidebar">
+        <div class="offcanvas-header">
+          <h5 class="text-white offcanvas-title">Menu</h5>
+          <button style="color: white;" type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="list-unstyled">
+  <!-- Dashboard / Home -->
+  <li>
+    <a href="dashboard.html" class="btn text-white w-100 text-start">
+      <i class="bi bi-house-door me-1"></i> Dashboard
+    </a>
+  </li>
+
+  <!-- Rewards -->
+  <li>
+    <a href="gamification.html" class="btn text-white w-100 text-start">
+      <i class="bi bi-gift me-1"></i> Rewards
+    </a>
+  </li>
+
+  <!-- Logout -->
+  <li>
+    <a href="#" class="btn text-white w-100 text-start" onclick="logout()">
+      <i class="bi bi-box-arrow-right me-1"></i> Logout
+    </a>
+  </li>
+</ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container-fluid">
+      <div class="row">
+        <!-- Sidebar -->
+        <div class="col-lg-2 sidebar position-sticky top-0 p-3">
+          <nav class="nav nav-images">
+            <a target="_blank" href="https://www.tiktok.com" class="nav-link menulinkicon bgtiktok" id="linkTiktok">
+              <img src="tiktokimage.png" alt="TikTok">
+            </a>
+            <a target="_blank" href="ProfileOptimiser.html" class="nav-link menulinkicon">
+              <img src="prefeumberlogo.jpg" alt="Profile Optimiser">
+            </a>
+            <a target="_blank" href="aitooldashboard.html" class="nav-link menulinkicon bgaitol active">
+              <img src="aitoolimage.png" alt="AI Business Generator">
+            </a>
+            <a target="_blank" href="whatsapp-connecter.html" class="nav-link menulinkicon bgmsgmenu">
+              <img src="msgiconred.png" alt="AI Business Generator">
+            </a>
+            <a target="_blank" href="shopifymontering.html" class="nav-link menulinkicon bgmsgmenu">
+              <img src="shopifymotiring.jpg" alt="AI Business Generator">
+            </a>
+            <a target="_blank" href="tasktracker.html" class="nav-link menulinkicon bgmsgmenu">
+              <img src="tasktracker.jpg" alt="AI Business Generator">
+            </a>
+             <a target="_blank" href="gamification.html" class="nav-link menulinkicon">
+              <img src="gamification.jpeg" alt="Gamification">
+            </a>
+
+             <a target="_blank" href="pulse-report.html" class="nav-link menulinkicon">
+              <img src="pulse.jpeg" alt="Gamification">
+            </a>
+            
+          </nav>
+        </div>
+        <div class="col-lg-10 p-4 min-vh-100">
+
+          <nav class="navbar navbar-expand-lg">
+            <div class="container">
+              <a class="navbar-brand fw-bold" href="#">My Projects</a>
+            </div>
+          </nav>
+
+          <!-- Main Container -->
+          <div class="container my-4">
+            <div id="projectList" class="row g-4 justify-content-center">
+              <!-- Projects will be injected here -->
+            </div>
+            <div id="noProjects" class="text-center mt-4 d-none">
+              <h5 class="text-muted">No projects assigned yet.</h5>
+            </div>
+          </div>
+
+
+            <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="#">My Tasks</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <div class="container my-4">
+    <h2 class="text-center mb-4">Tasks for This Project</h2>
+    <div id="taskList" class="row g-4 justify-content-center">
+      <!-- Tasks will be inserted here -->
+    </div>
+    <div id="noTasks" class="text-center mt-4 d-none">
+      <h5 class="text-muted">No tasks assigned for this project.</h5>
+    </div>
+  </div>
+        </div>
+
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="text-center">
+    © 2025 Imperium Media Enterprises Ltd | Company No. 16496865 |
+    Registered in England and Wales. All rights reserved. Visit
+    <a href="https://www.imperiummedia.co.uk" class="text-white text-decoration-none">www.imperiummedia.co.uk</a>.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+ 
+  <script>
+    window.addEventListener("DOMContentLoaded", () => {
+      const user = localStorage.getItem("user");
+      if (!user) {
+        window.location.href = "login.html";
+      } else {
+        const userData = JSON.parse(user);
+        document.getElementById("welcomeMsg").innerHTML =
+          `<span style="font-weight:300;"> Welcome 👋 , <br> Logged in As </span> <span style="font-weight:500;" >${userData.name}</span>`;
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("dashboardContainer").style.display = "block";
+      }
+    });
+
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  </script>
+
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      const mainContent = document.getElementById("main-content");
+
+      setTimeout(() => {
+        preloader.style.transition = "opacity 0.8s ease";
+        preloader.style.opacity = 0;
+
+        setTimeout(() => {
+          preloader.style.display = "none";
+          mainContent.style.display = "grid";
+          if (navigator.vibrate) {
+            navigator.vibrate(200);
+          }
+        }, 800);
+      }, 3000);
+    });
+  </script>
+ <script>
+document.addEventListener("DOMContentLoaded", async () => {
+  const projectList = document.getElementById("projectList");
+  const noProjects = document.getElementById("noProjects");
+  const taskList = document.getElementById("taskList");
+  const noTasks = document.getElementById("noTasks");
+
+  const token = localStorage.getItem("token");
+  if (!token) {
+    alert("You are not logged in.");
+    window.location.href = "/login.html";
+    return;
+  }
+
+  try {
+    // 1️⃣ Fetch Projects for Employee
+    const res = await fetch("https://impremiumbackend.vercel.app/api/projects/me/employee-projects", {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    const data = await res.json();
+
+    if (res.ok && data.projects?.length > 0) {
+      data.projects.forEach(project => {
+        const col = document.createElement("div");
+        col.className = "col-md-4";
+        col.innerHTML = `
+          <div class="card p-3">
+            <div class="card-body">
+              <h5 class="project-title">${project.title || "Untitled Project"}</h5>
+              <p class="card-text">${project.description || "No description available."}</p>
+             
+              <button class="btn btn-danger btn-sm mt-2 view-tasks-btn" data-id="${project._id}">
+                View Tasks
+              </button>
+            </div>
+          </div>
+        `;
+        projectList.appendChild(col);
+      });
+
+      // 2️⃣ Add click listener for "View Tasks"
+      document.querySelectorAll(".view-tasks-btn").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const projectId = btn.dataset.id;
+          localStorage.setItem("currentProjectId", projectId);
+          loadTasks(projectId, token); // ✅ Load tasks dynamically on same page
+        });
+      });
+
+    } else {
+      noProjects.classList.remove("d-none");
+    }
+
+    // 3️⃣ Auto-load tasks if projectId already selected before refresh
+    const savedProjectId = localStorage.getItem("currentProjectId");
+    if (savedProjectId) {
+      loadTasks(savedProjectId, token);
+    }
+
+  } catch (err) {
+    console.error("Error fetching projects:", err);
+    alert("Failed to load projects. Please try again.");
+  }
+
+  // Function to fetch and display tasks for a given project
+ 
+// Function to fetch and display tasks for a given project
+async function loadTasks(projectId, token) {
+  taskList.innerHTML = ""; // clear old tasks
+  try {
+    const res = await fetch(`https://impremiumbackend.vercel.app/api/tasks/my/${projectId}`, {
+      headers: { "Authorization": `Bearer ${token}` }
+    });
+
+    const tasks = await res.json();
+
+    if (res.ok && tasks.length > 0) {
+      tasks.forEach(task => {
+        const col = document.createElement("div");
+        col.className = "col-md-6";
+
+        col.innerHTML = `
+          <div class="card task-card p-3">
+            <div class="card-body">
+              <h5 class="card-title text-danger">${task.title}</h5>
+              <p class="card-text">${task.description || "No description"}</p>
+           <!-- Status as button -->
+<p >
+  <span class="btn btn-sm " style="color:white; background-color: #D51B1C;">
+    ${task.status || "No Status"}
+  </span>
+</p>
+
+<!-- Completion as progress bar -->
+<div class="mb-2">
+  <div class="progress" style="height: 20px; background-color: #D51B1C;">
+    <div class="progress-bar"   role="progressbar" 
+         style="width: ${task.completion || 0}%;" 
+         aria-valuenow="${task.completion || 0}" 
+         aria-valuemin="0" 
+         aria-valuemax="100">
+      ${task.completion || 0}%
+    </div>
+  </div>
+</div>
+
+
+              <p class="text-muted"><strong>Deadline:</strong> 
+                ${task.deadline ? new Date(task.deadline).toLocaleDateString() : "No deadline"}
+              </p>
+
+              <!-- Hidden Edit Section -->
+              <div class="edit-section d-none">
+                <p><strong>Status:</strong>
+                  <select class="form-select form-select-sm status-select" data-id="${task._id}">
+                    ${["TO_DO", "IN_PROGRESS", "DONE"].map(st => `
+                      <option value="${st}" ${task.status === st ? "selected" : ""}>
+                        ${st.replace("_", " ").toLowerCase().replace(/\b\w/g, c => c.toUpperCase())}
+                      </option>
+                    `).join("")}
+                  </select>
+                </p>
+
+                <label class="form-label">Completion %</label>
+                <input type="number" min="0" max="100" value="${task.completion || 0}" 
+                       class="form-control completion-input mb-2" data-id="${task._id}">
+
+                <div class="progress mb-2">
+                  <div class="progress-bar bg-danger" role="progressbar" 
+                       style="width: ${task.completion || 0}%"></div>
+                </div>
+
+                <button class="btn btn-danger btn-sm update-btn" data-id="${task._id}">Save Changes</button>
+              </div>
+
+              <!-- Edit Toggle Button -->
+              <button class="btn btn-outline-danger btn-sm mt-2 toggle-edit-btn">
+                <i class="bi bi-pencil"></i> Edit Task
+              </button>
+            </div>
+          </div>
+        `;
+
+        taskList.appendChild(col);
+      });
+
+      attachEditAndUpdateListeners(token);
+    } else {
+      noTasks.classList.remove("d-none");
+    }
+  } catch (err) {
+    console.error("Error fetching tasks:", err);
+    alert("Failed to load tasks.");
+  }
+}
+
+function attachEditAndUpdateListeners(token) {
+  // Toggle Edit Section
+  document.querySelectorAll(".toggle-edit-btn").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const editSection = e.target.closest(".card-body").querySelector(".edit-section");
+      editSection.classList.toggle("d-none");
+    });
+  });
+
+  // Handle Update Task
+  document.querySelectorAll(".update-btn").forEach(btn => {
+    btn.addEventListener("click", async (e) => {
+      const taskId = e.target.dataset.id;
+      const status = document.querySelector(`.status-select[data-id="${taskId}"]`).value;
+      const completion = document.querySelector(`.completion-input[data-id="${taskId}"]`).value;
+
+      try {
+        const updateRes = await fetch(`https://impremiumbackend.vercel.app/api/tasks/${taskId}/progress`, {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+          },
+          body: JSON.stringify({ status, completion })
+        });
+
+        const data = await updateRes.json();
+        if (updateRes.ok) {
+          alert("Task updated successfully!");
+          loadTasks(localStorage.getItem("currentProjectId"), token);
+        } else {
+          alert(data.msg || "Failed to update task.");
+        }
+      } catch (err) {
+        console.error("Error updating task:", err);
+        alert("Error updating task.");
+      }
+    });
+  });
+}
+
+});
+</script>
+
+</body>
+
+</html>

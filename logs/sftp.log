@@ -1,0 +1,291 @@
+Oct  7 10:47:40 10.71.56.0 a3208494 Connection from 10.71.56.0 port 34692 on 82.165.90.123 port 22 rdomain ""
+Oct  7 10:47:42 10.71.56.0 a3208494 Accepted password for a3208494 from 10.71.56.0 port 34692 ssh2
+Oct  7 10:47:43 10.71.56.0 a3208494 Starting session: subsystem 'sftp' for a3208494 from 10.71.56.0 port 34692 id 0
+Oct  7 10:47:43 10.71.56.0 a3208494 session opened for local user a3208494 from [10.71.56.0]
+Oct  7 10:47:54 10.71.57.0 a3208494 Connection from 10.71.57.0 port 61748 on 82.165.90.123 port 22 rdomain ""
+Oct  7 10:47:55 10.71.57.0 a3208494 Accepted password for a3208494 from 10.71.57.0 port 61748 ssh2
+Oct  7 10:47:54 10.71.57.0 a3208494 Connection from 10.71.57.0 port 61764 on 82.165.90.123 port 22 rdomain ""
+Oct  7 10:47:55 10.71.57.0 a3208494 Accepted password for a3208494 from 10.71.57.0 port 61764 ssh2
+Oct  7 10:47:55 10.71.56.0 a3208494 sent status No such file
+Oct  7 10:47:56 10.71.57.0 a3208494 Starting session: subsystem 'sftp' for a3208494 from 10.71.57.0 port 61748 id 0
+Oct  7 10:47:56 10.71.57.0 a3208494 Starting session: subsystem 'sftp' for a3208494 from 10.71.57.0 port 61764 id 0
+Oct  7 10:47:56 10.71.57.0 a3208494 session opened for local user a3208494 from [10.71.57.0]
+Oct  7 10:47:56 10.71.57.0 a3208494 session opened for local user a3208494 from [10.71.57.0]
+Oct  7 10:47:58 10.71.57.0 a3208494 open "/login.html" flags READ mode 0666
+Oct  7 10:47:58 10.71.57.0 a3208494 open "/lastlogoimpremuim.png" flags READ mode 0666
+Oct  7 10:47:59 10.71.57.0 a3208494 close "/login.html" bytes read 14729 written 0
+Oct  7 10:47:59 10.71.57.0 a3208494 [10.71.57.0|get|1|14729|0|0|0|2f6c6f67696e2e68746d6c|]
+Oct  7 10:47:59 10.71.57.0 a3208494 close "/lastlogoimpremuim.png" bytes read 111415 written 0
+Oct  7 10:47:59 10.71.57.0 a3208494 [10.71.57.0|get|1|111415|0|0|0|2f6c6173746c6f676f696d7072656d75696d2e706e67|]
+Oct  7 10:47:59 10.71.57.0 a3208494 open "/otp.html" flags READ mode 0666
+Oct  7 10:48:00 10.71.57.0 a3208494 open "/termsandconditions.html" flags READ mode 0666
+Oct  7 10:48:00 10.71.57.0 a3208494 close "/otp.html" bytes read 11398 written 0
+Oct  7 10:48:00 10.71.57.0 a3208494 [10.71.57.0|get|1|11398|0|0|0|2f6f74702e68746d6c|]
+Oct  7 10:48:01 10.71.57.0 a3208494 close "/termsandconditions.html" bytes read 43522 written 0
+Oct  7 10:48:01 10.71.57.0 a3208494 [10.71.57.0|get|1|43522|0|0|0|2f7465726d73616e64636f6e646974696f6e732e68746d6c|]
+Oct  7 10:48:01 10.71.57.0 a3208494 open "/multilingualmarketing.html" flags READ mode 0666
+Oct  7 10:48:01 10.71.57.0 a3208494 open "/marketingservices.html" flags READ mode 0666
+Oct  7 10:48:02 10.71.57.0 a3208494 close "/multilingualmarketing.html" bytes read 18657 written 0
+Oct  7 10:48:02 10.71.57.0 a3208494 [10.71.57.0|get|1|18657|0|0|0|2f6d756c74696c696e6775616c6d61726b6574696e672e68746d6c|]
+Oct  7 10:48:02 10.71.57.0 a3208494 open "/history.html" flags READ mode 0666
+Oct  7 10:48:02 10.71.57.0 a3208494 close "/marketingservices.html" bytes read 17536 written 0
+Oct  7 10:48:02 10.71.57.0 a3208494 [10.71.57.0|get|1|17536|0|0|0|2f6d61726b6574696e6773657276696365732e68746d6c|]
+Oct  7 10:48:03 10.71.57.0 a3208494 open "/freeadvertising.html" flags READ mode 0666
+Oct  7 10:48:03 10.71.57.0 a3208494 close "/history.html" bytes read 18384 written 0
+Oct  7 10:48:03 10.71.57.0 a3208494 [10.71.57.0|get|1|18384|0|0|0|2f686973746f72792e68746d6c|]
+Oct  7 10:48:04 10.71.57.0 a3208494 close "/freeadvertising.html" bytes read 19415 written 0
+Oct  7 10:48:04 10.71.57.0 a3208494 [10.71.57.0|get|1|19415|0|0|0|2f667265656164766572746973696e672e68746d6c|]
+Oct  7 10:48:04 10.71.57.0 a3208494 open "/clientsupportpage.html" flags READ mode 0666
+Oct  7 10:48:05 10.71.57.0 a3208494 close "/clientsupportpage.html" bytes read 15844 written 0
+Oct  7 10:48:05 10.71.57.0 a3208494 [10.71.57.0|get|1|15844|0|0|0|2f636c69656e74737570706f7274706167652e68746d6c|]
+Oct  7 10:48:05 10.71.57.0 a3208494 open "/pulse-report.html" flags READ mode 0666
+Oct  7 10:48:05 10.71.57.0 a3208494 open "/qr-logo.jpeg.jpg" flags READ mode 0666
+Oct  7 10:48:05 10.71.57.0 a3208494 close "/pulse-report.html" bytes read 7435 written 0
+Oct  7 10:48:05 10.71.57.0 a3208494 [10.71.57.0|get|0|7435|0|0|0|2f70756c73652d7265706f72742e68746d6c|]
+Oct  7 10:48:06 10.71.57.0 a3208494 open "/msgiconred.png" flags READ mode 0666
+Oct  7 10:48:06 10.71.57.0 a3208494 close "/qr-logo.jpeg.jpg" bytes read 19394 written 0
+Oct  7 10:48:06 10.71.57.0 a3208494 [10.71.57.0|get|1|19394|0|0|0|2f71722d6c6f676f2e6a7065672e6a7067|]
+Oct  7 10:48:07 10.71.57.0 a3208494 open "/newiamgeredtheme.jpg" flags READ mode 0666
+Oct  7 10:48:09 10.71.57.0 a3208494 close "/newiamgeredtheme.jpg" bytes read 15174 written 0
+Oct  7 10:48:09 10.71.57.0 a3208494 [10.71.57.0|get|2|15174|0|0|0|2f6e657769616d67657265647468656d652e6a7067|]
+Oct  7 10:48:10 10.71.57.0 a3208494 open "/loaderimage.png" flags READ mode 0666
+Oct  7 10:48:11 10.71.57.0 a3208494 close "/msgiconred.png" bytes read 839777 written 0
+Oct  7 10:48:11 10.71.57.0 a3208494 [10.71.57.0|get|5|839777|0|0|0|2f6d736769636f6e7265642e706e67|]
+Oct  7 10:48:12 10.71.57.0 a3208494 open "/tasktracker.html" flags READ mode 0666
+Oct  7 10:48:13 10.71.57.0 a3208494 close "/tasktracker.html" bytes read 14248 written 0
+Oct  7 10:48:13 10.71.57.0 a3208494 [10.71.57.0|get|1|14248|0|0|0|2f7461736b747261636b65722e68746d6c|]
+Oct  7 10:48:13 10.71.57.0 a3208494 close "/loaderimage.png" bytes read 128186 written 0
+Oct  7 10:48:13 10.71.57.0 a3208494 [10.71.57.0|get|3|128186|0|0|0|2f6c6f61646572696d6167652e706e67|]
+Oct  7 10:48:13 10.71.57.0 a3208494 open "/dashboard.html" flags READ mode 0666
+Oct  7 10:48:14 10.71.57.0 a3208494 open "/tryimperium.html" flags READ mode 0666
+Oct  7 10:48:14 10.71.57.0 a3208494 close "/dashboard.html" bytes read 18807 written 0
+Oct  7 10:48:14 10.71.57.0 a3208494 [10.71.57.0|get|1|18807|0|0|0|2f64617368626f6172642e68746d6c|]
+Oct  7 10:48:14 10.71.57.0 a3208494 close "/tryimperium.html" bytes read 11914 written 0
+Oct  7 10:48:14 10.71.57.0 a3208494 [10.71.57.0|get|0|11914|0|0|0|2f747279696d70657269756d2e68746d6c|]
+Oct  7 10:48:15 10.71.57.0 a3208494 open "/socialmediamanagement.html" flags READ mode 0666
+Oct  7 10:48:15 10.71.57.0 a3208494 open "/saiyanproductions.html" flags READ mode 0666
+Oct  7 10:48:15 10.71.57.0 a3208494 close "/socialmediamanagement.html" bytes read 18562 written 0
+Oct  7 10:48:15 10.71.57.0 a3208494 [10.71.57.0|get|0|18562|0|0|0|2f736f6369616c6d656469616d616e6167656d656e742e68746d6c|]
+Oct  7 10:48:16 10.71.57.0 a3208494 close "/saiyanproductions.html" bytes read 17344 written 0
+Oct  7 10:48:16 10.71.57.0 a3208494 [10.71.57.0|get|1|17344|0|0|0|2f73616979616e70726f64756374696f6e732e68746d6c|]
+Oct  7 10:48:16 10.71.57.0 a3208494 open "/shopifymontering.html" flags READ mode 0666
+Oct  7 10:48:16 10.71.57.0 a3208494 open "/admindashboard.html" flags READ mode 0666
+Oct  7 10:48:17 10.71.57.0 a3208494 close "/shopifymontering.html" bytes read 38321 written 0
+Oct  7 10:48:17 10.71.57.0 a3208494 [10.71.57.0|get|1|38321|0|0|0|2f73686f706966796d6f6e746572696e672e68746d6c|]
+Oct  7 10:48:17 10.71.57.0 a3208494 close "/admindashboard.html" bytes read 44456 written 0
+Oct  7 10:48:17 10.71.57.0 a3208494 [10.71.57.0|get|1|44456|0|0|0|2f61646d696e64617368626f6172642e68746d6c|]
+Oct  7 10:48:18 10.71.57.0 a3208494 open "/WhatsApp Image 2025-08-31 at 16.56.15.jpeg" flags READ mode 0666
+Oct  7 10:48:18 10.71.57.0 a3208494 open "/preloader.png" flags READ mode 0666
+Oct  7 10:48:18 10.71.57.0 a3208494 close "/WhatsApp Image 2025-08-31 at 16.56.15.jpeg" bytes read 88284 written 0
+Oct  7 10:48:18 10.71.57.0 a3208494 [10.71.57.0|get|0|88284|0|0|0|2f576861747341707020496d61676520323032352d30382d33312061742031362e35362e31352e6a706567|]
+Oct  7 10:48:19 10.71.57.0 a3208494 close "/preloader.png" bytes read 136922 written 0
+Oct  7 10:48:19 10.71.57.0 a3208494 [10.71.57.0|get|1|136922|0|0|0|2f7072656c6f616465722e706e67|]
+Oct  7 10:48:19 10.71.57.0 a3208494 open "/aitoolimage.png" flags READ mode 0666
+Oct  7 10:48:19 10.71.57.0 a3208494 open "/tiktokimage.png" flags READ mode 0666
+Oct  7 10:48:20 10.71.57.0 a3208494 close "/aitoolimage.png" bytes read 84742 written 0
+Oct  7 10:48:20 10.71.57.0 a3208494 [10.71.57.0|get|1|84742|0|0|0|2f6169746f6f6c696d6167652e706e67|]
+Oct  7 10:48:20 10.71.57.0 a3208494 close "/tiktokimage.png" bytes read 32361 written 0
+Oct  7 10:48:20 10.71.57.0 a3208494 [10.71.57.0|get|1|32361|0|0|0|2f74696b746f6b696d6167652e706e67|]
+Oct  7 10:48:21 10.71.57.0 a3208494 open "/prefeumberlogo.jpg" flags READ mode 0666
+Oct  7 10:48:21 10.71.57.0 a3208494 open "/index.html" flags READ mode 0666
+Oct  7 10:48:21 10.71.57.0 a3208494 close "/prefeumberlogo.jpg" bytes read 11432 written 0
+Oct  7 10:48:21 10.71.57.0 a3208494 [10.71.57.0|get|0|11432|0|0|0|2f7072656665756d6265726c6f676f2e6a7067|]
+Oct  7 10:48:22 10.71.57.0 a3208494 close "/index.html" bytes read 54822 written 0
+Oct  7 10:48:22 10.71.57.0 a3208494 [10.71.57.0|get|1|54822|0|0|0|2f696e6465782e68746d6c|]
+Oct  7 10:48:22 10.71.57.0 a3208494 open "/signup.html" flags READ mode 0666
+Oct  7 10:48:22 10.71.57.0 a3208494 open "/coursepage.html" flags READ mode 0666
+Oct  7 10:48:23 10.71.57.0 a3208494 close "/signup.html" bytes read 12454 written 0
+Oct  7 10:48:23 10.71.57.0 a3208494 [10.71.57.0|get|1|12454|0|0|0|2f7369676e75702e68746d6c|]
+Oct  7 10:48:23 10.71.57.0 a3208494 close "/coursepage.html" bytes read 51660 written 0
+Oct  7 10:48:23 10.71.57.0 a3208494 [10.71.57.0|get|1|51660|0|0|0|2f636f75727365706167652e68746d6c|]
+Oct  7 10:48:24 10.71.57.0 a3208494 open "/qr-demo.html" flags READ mode 0666
+Oct  7 10:48:24 10.71.57.0 a3208494 open "/admindahbaord.css" flags READ mode 0666
+Oct  7 10:48:24 10.71.57.0 a3208494 close "/qr-demo.html" bytes read 31332 written 0
+Oct  7 10:48:24 10.71.57.0 a3208494 [10.71.57.0|get|0|31332|0|0|0|2f71722d64656d6f2e68746d6c|]
+Oct  7 10:48:25 10.71.57.0 a3208494 close "/admindahbaord.css" bytes read 2139 written 0
+Oct  7 10:48:25 10.71.57.0 a3208494 [10.71.57.0|get|1|2139|0|0|0|2f61646d696e64616862616f72642e637373|]
+Oct  7 10:48:25 10.71.57.0 a3208494 open "/shopifymotiring.jpg" flags READ mode 0666
+Oct  7 10:48:25 10.71.57.0 a3208494 open "/websitedesign.html" flags READ mode 0666
+Oct  7 10:48:26 10.71.57.0 a3208494 close "/shopifymotiring.jpg" bytes read 27402 written 0
+Oct  7 10:48:26 10.71.57.0 a3208494 [10.71.57.0|get|1|27402|0|0|0|2f73686f706966796d6f746972696e672e6a7067|]
+Oct  7 10:48:26 10.71.57.0 a3208494 close "/websitedesign.html" bytes read 15968 written 0
+Oct  7 10:48:26 10.71.57.0 a3208494 [10.71.57.0|get|1|15968|0|0|0|2f7765627369746564657369676e2e68746d6c|]
+Oct  7 10:48:27 10.71.57.0 a3208494 open "/startuprogramme.html" flags READ mode 0666
+Oct  7 10:48:27 10.71.57.0 a3208494 open "/service.html" flags READ mode 0666
+Oct  7 10:48:27 10.71.57.0 a3208494 close "/startuprogramme.html" bytes read 17265 written 0
+Oct  7 10:48:27 10.71.57.0 a3208494 [10.71.57.0|get|0|17265|0|0|0|2f73746172747570726f6772616d6d652e68746d6c|]
+Oct  7 10:48:27 10.71.57.0 a3208494 close "/service.html" bytes read 24176 written 0
+Oct  7 10:48:27 10.71.57.0 a3208494 [10.71.57.0|get|0|24176|0|0|0|2f736572766963652e68746d6c|]
+Oct  7 10:48:28 10.71.57.0 a3208494 open "/jobs.html" flags READ mode 0666
+Oct  7 10:48:28 10.71.57.0 a3208494 open "/privacypolicy.html" flags READ mode 0666
+Oct  7 10:48:29 10.71.57.0 a3208494 close "/jobs.html" bytes read 15332 written 0
+Oct  7 10:48:29 10.71.57.0 a3208494 [10.71.57.0|get|1|15332|0|0|0|2f6a6f62732e68746d6c|]
+Oct  7 10:48:29 10.71.57.0 a3208494 close "/privacypolicy.html" bytes read 11590 written 0
+Oct  7 10:48:29 10.71.57.0 a3208494 [10.71.57.0|get|1|11590|0|0|0|2f70726976616379706f6c6963792e68746d6c|]
+Oct  7 10:48:30 10.71.57.0 a3208494 open "/itsupportservice.html" flags READ mode 0666
+Oct  7 10:48:30 10.71.57.0 a3208494 open "/googlemybusiness.html" flags READ mode 0666
+Oct  7 10:48:30 10.71.57.0 a3208494 close "/itsupportservice.html" bytes read 16413 written 0
+Oct  7 10:48:30 10.71.57.0 a3208494 [10.71.57.0|get|0|16413|0|0|0|2f6974737570706f7274736572766963652e68746d6c|]
+Oct  7 10:48:30 10.71.57.0 a3208494 close "/googlemybusiness.html" bytes read 17935 written 0
+Oct  7 10:48:30 10.71.57.0 a3208494 [10.71.57.0|get|0|17935|0|0|0|2f676f6f676c656d79627573696e6573732e68746d6c|]
+Oct  7 10:48:31 10.71.57.0 a3208494 open "/contentcreation.html" flags READ mode 0666
+Oct  7 10:48:31 10.71.57.0 a3208494 open "/contact.html" flags READ mode 0666
+Oct  7 10:48:32 10.71.57.0 a3208494 close "/contentcreation.html" bytes read 18737 written 0
+Oct  7 10:48:32 10.71.57.0 a3208494 [10.71.57.0|get|1|18737|0|0|0|2f636f6e74656e746372656174696f6e2e68746d6c|]
+Oct  7 10:48:32 10.71.57.0 a3208494 close "/contact.html" bytes read 14991 written 0
+Oct  7 10:48:32 10.71.57.0 a3208494 [10.71.57.0|get|1|14991|0|0|0|2f636f6e746163742e68746d6c|]
+Oct  7 10:48:33 10.71.57.0 a3208494 open "/clients.html" flags READ mode 0666
+Oct  7 10:48:33 10.71.57.0 a3208494 open "/about.html" flags READ mode 0666
+Oct  7 10:48:33 10.71.57.0 a3208494 close "/clients.html" bytes read 21586 written 0
+Oct  7 10:48:33 10.71.57.0 a3208494 [10.71.57.0|get|0|21586|0|0|0|2f636c69656e74732e68746d6c|]
+Oct  7 10:48:33 10.71.57.0 a3208494 close "/about.html" bytes read 18195 written 0
+Oct  7 10:48:33 10.71.57.0 a3208494 [10.71.57.0|get|0|18195|0|0|0|2f61626f75742e68746d6c|]
+Oct  7 10:48:34 10.71.57.0 a3208494 open "/support2.webp" flags READ mode 0666
+Oct  7 10:48:34 10.71.57.0 a3208494 open "/support.webp" flags READ mode 0666
+Oct  7 10:48:35 10.71.57.0 a3208494 close "/support2.webp" bytes read 36814 written 0
+Oct  7 10:48:35 10.71.57.0 a3208494 [10.71.57.0|get|1|36814|0|0|0|2f737570706f7274322e77656270|]
+Oct  7 10:48:35 10.71.57.0 a3208494 close "/support.webp" bytes read 40632 written 0
+Oct  7 10:48:35 10.71.57.0 a3208494 [10.71.57.0|get|1|40632|0|0|0|2f737570706f72742e77656270|]
+Oct  7 10:48:36 10.71.57.0 a3208494 open "/aboutsaiyan2.jpg" flags READ mode 0666
+Oct  7 10:48:36 10.71.57.0 a3208494 open "/aboutsaiyan.jpg" flags READ mode 0666
+Oct  7 10:48:36 10.71.57.0 a3208494 close "/aboutsaiyan2.jpg" bytes read 104597 written 0
+Oct  7 10:48:36 10.71.57.0 a3208494 [10.71.57.0|get|0|104597|0|0|0|2f61626f757473616979616e322e6a7067|]
+Oct  7 10:48:36 10.71.57.0 a3208494 close "/aboutsaiyan.jpg" bytes read 40140 written 0
+Oct  7 10:48:36 10.71.57.0 a3208494 [10.71.57.0|get|0|40140|0|0|0|2f61626f757473616979616e2e6a7067|]
+Oct  7 10:48:37 10.71.57.0 a3208494 open "/about10.jpg" flags READ mode 0666
+Oct  7 10:48:37 10.71.57.0 a3208494 open "/whatsapp-connecter.html" flags READ mode 0666
+Oct  7 10:48:38 10.71.57.0 a3208494 close "/about10.jpg" bytes read 40140 written 0
+Oct  7 10:48:38 10.71.57.0 a3208494 [10.71.57.0|get|1|40140|0|0|0|2f61626f757431302e6a7067|]
+Oct  7 10:48:38 10.71.57.0 a3208494 close "/whatsapp-connecter.html" bytes read 14643 written 0
+Oct  7 10:48:38 10.71.57.0 a3208494 [10.71.57.0|get|1|14643|0|0|0|2f77686174736170702d636f6e6e65637465722e68746d6c|]
+Oct  7 10:48:39 10.71.57.0 a3208494 open "/gamification.html" flags READ mode 0666
+Oct  7 10:48:39 10.71.57.0 a3208494 open "/aitooldashboard.html" flags READ mode 0666
+Oct  7 10:48:39 10.71.57.0 a3208494 close "/gamification.html" bytes read 33642 written 0
+Oct  7 10:48:39 10.71.57.0 a3208494 [10.71.57.0|get|0|33642|0|0|0|2f67616d696669636174696f6e2e68746d6c|]
+Oct  7 10:48:39 10.71.57.0 a3208494 close "/aitooldashboard.html" bytes read 39017 written 0
+Oct  7 10:48:39 10.71.57.0 a3208494 [10.71.57.0|get|0|39017|0|0|0|2f6169746f6f6c64617368626f6172642e68746d6c|]
+Oct  7 10:48:40 10.71.57.0 a3208494 open "/sitemap.xml" flags READ mode 0666
+Oct  7 10:48:40 10.71.57.0 a3208494 open "/sitemap.html" flags READ mode 0666
+Oct  7 10:48:41 10.71.57.0 a3208494 close "/sitemap.xml" bytes read 2028 written 0
+Oct  7 10:48:41 10.71.57.0 a3208494 [10.71.57.0|get|1|2028|0|0|0|2f736974656d61702e786d6c|]
+Oct  7 10:48:41 10.71.57.0 a3208494 close "/sitemap.html" bytes read 7163 written 0
+Oct  7 10:48:41 10.71.57.0 a3208494 [10.71.57.0|get|1|7163|0|0|0|2f736974656d61702e68746d6c|]
+Oct  7 10:48:42 10.71.57.0 a3208494 open "/userdashboard.html" flags READ mode 0666
+Oct  7 10:48:42 10.71.57.0 a3208494 open "/gamification.jpeg" flags READ mode 0666
+Oct  7 10:48:43 10.71.57.0 a3208494 close "/userdashboard.html" bytes read 20808 written 0
+Oct  7 10:48:43 10.71.57.0 a3208494 [10.71.57.0|get|1|20808|0|0|0|2f7573657264617368626f6172642e68746d6c|]
+Oct  7 10:48:43 10.71.57.0 a3208494 close "/gamification.jpeg" bytes read 63017 written 0
+Oct  7 10:48:43 10.71.57.0 a3208494 [10.71.57.0|get|1|63017|0|0|0|2f67616d696669636174696f6e2e6a706567|]
+Oct  7 10:48:43 10.71.57.0 a3208494 open "/ProfileOptimiser.html" flags READ mode 0666
+Oct  7 10:48:43 10.71.57.0 a3208494 open "/tasktracker.jpg" flags READ mode 0666
+Oct  7 10:48:44 10.71.57.0 a3208494 close "/ProfileOptimiser.html" bytes read 24413 written 0
+Oct  7 10:48:44 10.71.57.0 a3208494 [10.71.57.0|get|1|24413|0|0|0|2f50726f66696c654f7074696d697365722e68746d6c|]
+Oct  7 10:48:44 10.71.57.0 a3208494 close "/tasktracker.jpg" bytes read 78547 written 0
+Oct  7 10:48:44 10.71.57.0 a3208494 [10.71.57.0|get|1|78547|0|0|0|2f7461736b747261636b65722e6a7067|]
+Oct  7 10:48:45 10.71.57.0 a3208494 open "/googlebe1f2eb2ce5a8271.html" flags READ mode 0666
+Oct  7 10:48:45 10.71.57.0 a3208494 open "/favicon-32x32.png" flags READ mode 0666
+Oct  7 10:48:46 10.71.57.0 a3208494 close "/googlebe1f2eb2ce5a8271.html" bytes read 53 written 0
+Oct  7 10:48:46 10.71.57.0 a3208494 [10.71.57.0|get|1|53|0|0|0|2f676f6f676c65626531663265623263653561383237312e68746d6c|]
+Oct  7 10:48:46 10.71.57.0 a3208494 close "/favicon-32x32.png" bytes read 1745 written 0
+Oct  7 10:48:46 10.71.57.0 a3208494 [10.71.57.0|get|1|1745|0|0|0|2f66617669636f6e2d33327833322e706e67|]
+Oct  7 10:48:46 10.71.57.0 a3208494 open "/favicon-16x16.png" flags READ mode 0666
+Oct  7 10:48:46 10.71.57.0 a3208494 open "/favicon.ico" flags READ mode 0666
+Oct  7 10:48:47 10.71.57.0 a3208494 close "/favicon-16x16.png" bytes read 652 written 0
+Oct  7 10:48:47 10.71.57.0 a3208494 [10.71.57.0|get|1|652|0|0|0|2f66617669636f6e2d31367831362e706e67|]
+Oct  7 10:48:47 10.71.57.0 a3208494 close "/favicon.ico" bytes read 15406 written 0
+Oct  7 10:48:47 10.71.57.0 a3208494 [10.71.57.0|get|1|15406|0|0|0|2f66617669636f6e2e69636f|]
+Oct  7 10:48:48 10.71.57.0 a3208494 open "/pulse.jpeg" flags READ mode 0666
+Oct  7 10:48:48 10.71.57.0 a3208494 open "/apple-touch-icon.png" flags READ mode 0666
+Oct  7 10:48:49 10.71.57.0 a3208494 close "/pulse.jpeg" bytes read 18019 written 0
+Oct  7 10:48:49 10.71.57.0 a3208494 [10.71.57.0|get|1|18019|0|0|0|2f70756c73652e6a706567|]
+Oct  7 10:48:49 10.71.57.0 a3208494 close "/apple-touch-icon.png" bytes read 25876 written 0
+Oct  7 10:48:49 10.71.57.0 a3208494 [10.71.57.0|get|1|25876|0|0|0|2f6170706c652d746f7563682d69636f6e2e706e67|]
+Oct  7 10:48:49 10.71.57.0 a3208494 open "/android-chrome-512x512.png" flags READ mode 0666
+Oct  7 10:48:49 10.71.57.0 a3208494 open "/android-chrome-192x192.png" flags READ mode 0666
+Oct  7 10:48:50 10.71.57.0 a3208494 close "/android-chrome-512x512.png" bytes read 150423 written 0
+Oct  7 10:48:50 10.71.57.0 a3208494 [10.71.57.0|get|1|150423|0|0|0|2f616e64726f69642d6368726f6d652d353132783531322e706e67|]
+Oct  7 10:48:50 10.71.57.0 a3208494 close "/android-chrome-192x192.png" bytes read 28932 written 0
+Oct  7 10:48:50 10.71.57.0 a3208494 [10.71.57.0|get|1|28932|0|0|0|2f616e64726f69642d6368726f6d652d313932783139322e706e67|]
+Oct  7 10:48:51 10.71.57.0 a3208494 open "/.htaccess" flags READ mode 0666
+Oct  7 10:48:51 10.71.57.0 a3208494 open "/img.zip" flags READ mode 0666
+Oct  7 10:48:51 10.71.57.0 a3208494 close "/.htaccess" bytes read 174 written 0
+Oct  7 10:48:51 10.71.57.0 a3208494 [10.71.57.0|get|0|174|0|0|0|2f2e6874616363657373|]
+Oct  7 10:49:12 10.71.57.0 a3208494 Connection closed by 10.71.57.0 port 61748
+Oct  7 10:49:12 10.71.57.0 a3208494 session closed for local user a3208494 from [10.71.57.0]
+Oct  7 10:49:13 10.71.57.0 a3208494 Connection from 10.71.57.0 port 18444 on 82.165.90.123 port 22 rdomain ""
+Oct  7 10:49:15 10.71.57.0 a3208494 Accepted password for a3208494 from 10.71.57.0 port 18444 ssh2
+Oct  7 10:49:15 10.71.57.0 a3208494 Starting session: subsystem 'sftp' for a3208494 from 10.71.57.0 port 18444 id 0
+Oct  7 10:49:15 10.71.57.0 a3208494 session opened for local user a3208494 from [10.71.57.0]
+Oct  7 10:49:19 10.71.57.0 a3208494 open "/logs/access.log.36.gz" flags READ mode 0666
+Oct  7 10:49:21 10.71.57.0 a3208494 close "/logs/access.log.36.gz" bytes read 69238 written 0
+Oct  7 10:49:21 10.71.57.0 a3208494 [10.71.57.0|get|2|69238|0|0|0|2f6c6f67732f6163636573732e6c6f672e33362e677a|]
+Oct  7 10:49:22 10.71.57.0 a3208494 open "/logs/access.log.41.1.gz" flags READ mode 0666
+Oct  7 10:49:31 10.71.57.0 a3208494 close "/logs/access.log.41.1.gz" bytes read 8880 written 0
+Oct  7 10:49:31 10.71.57.0 a3208494 [10.71.57.0|get|9|8880|0|0|0|2f6c6f67732f6163636573732e6c6f672e34312e312e677a|]
+Oct  7 10:49:32 10.71.57.0 a3208494 open "/logs/access.log.41.2" flags READ mode 0666
+Oct  7 10:49:40 10.71.57.0 a3208494 close "/logs/access.log.41.2" bytes read 46456 written 0
+Oct  7 10:49:40 10.71.57.0 a3208494 [10.71.57.0|get|8|46456|0|0|0|2f6c6f67732f6163636573732e6c6f672e34312e32|]
+Oct  7 10:49:40 10.71.57.0 a3208494 open "/logs/sftp.log.38.gz" flags READ mode 0666
+Oct  7 10:49:56 10.71.57.0 a3208494 close "/logs/sftp.log.38.gz" bytes read 13687 written 0
+Oct  7 10:49:56 10.71.57.0 a3208494 [10.71.57.0|get|16|13687|0|0|0|2f6c6f67732f736674702e6c6f672e33382e677a|]
+Oct  7 10:49:56 10.71.57.0 a3208494 open "/logs/sftp.log.39.gz" flags READ mode 0666
+Oct  7 10:50:04 10.71.57.0 a3208494 close "/logs/sftp.log.39.gz" bytes read 1305 written 0
+Oct  7 10:50:04 10.71.57.0 a3208494 [10.71.57.0|get|8|1305|0|0|0|2f6c6f67732f736674702e6c6f672e33392e677a|]
+Oct  7 10:50:05 10.71.57.0 a3208494 open "/logs/access.log.37.gz" flags READ mode 0666
+Oct  7 10:50:41 10.71.57.0 a3208494 close "/img.zip" bytes read 13932804 written 0
+Oct  7 10:50:41 10.71.57.0 a3208494 [10.71.57.0|get|110|13932804|0|0|0|2f696d672e7a6970|]
+Oct  7 10:50:42 10.71.57.0 a3208494 open "/logs/sftp.log.40.gz" flags READ mode 0666
+Oct  7 10:50:43 10.71.57.0 a3208494 close "/logs/sftp.log.40.gz" bytes read 13928 written 0
+Oct  7 10:50:43 10.71.57.0 a3208494 [10.71.57.0|get|1|13928|0|0|0|2f6c6f67732f736674702e6c6f672e34302e677a|]
+Oct  7 10:50:44 10.71.57.0 a3208494 open "/logs/access.log.40.7.gz" flags READ mode 0666
+Oct  7 10:50:44 10.71.57.0 a3208494 close "/logs/access.log.40.7.gz" bytes read 16385 written 0
+Oct  7 10:50:44 10.71.57.0 a3208494 [10.71.57.0|get|0|16385|0|0|0|2f6c6f67732f6163636573732e6c6f672e34302e372e677a|]
+Oct  7 10:50:45 10.71.57.0 a3208494 open "/logs/access.log.40.5.gz" flags READ mode 0666
+Oct  7 10:50:46 10.71.57.0 a3208494 close "/logs/access.log.40.5.gz" bytes read 3188 written 0
+Oct  7 10:50:46 10.71.57.0 a3208494 [10.71.57.0|get|1|3188|0|0|0|2f6c6f67732f6163636573732e6c6f672e34302e352e677a|]
+Oct  7 10:50:46 10.71.57.0 a3208494 open "/logs/access.log.40.2.gz" flags READ mode 0666
+Oct  7 10:50:48 10.71.57.0 a3208494 close "/logs/access.log.40.2.gz" bytes read 10697 written 0
+Oct  7 10:50:48 10.71.57.0 a3208494 [10.71.57.0|get|2|10697|0|0|0|2f6c6f67732f6163636573732e6c6f672e34302e322e677a|]
+Oct  7 10:50:50 10.71.57.0 a3208494 open "/logs/sftp.log.37.gz" flags READ mode 0666
+Oct  7 10:50:51 10.71.57.0 a3208494 close "/logs/sftp.log.37.gz" bytes read 1497 written 0
+Oct  7 10:50:51 10.71.57.0 a3208494 [10.71.57.0|get|1|1497|0|0|0|2f6c6f67732f736674702e6c6f672e33372e677a|]
+Oct  7 10:50:52 10.71.57.0 a3208494 open "/logs/sftp.log.35.gz" flags READ mode 0666
+Oct  7 10:50:56 10.71.57.0 a3208494 close "/logs/sftp.log.35.gz" bytes read 8619 written 0
+Oct  7 10:50:56 10.71.57.0 a3208494 [10.71.57.0|get|4|8619|0|0|0|2f6c6f67732f736674702e6c6f672e33352e677a|]
+Oct  7 10:50:57 10.71.57.0 a3208494 open "/logs/access.log.39.gz" flags READ mode 0666
+Oct  7 10:51:06 10.71.57.0 a3208494 close "/logs/access.log.39.gz" bytes read 69973 written 0
+Oct  7 10:51:06 10.71.57.0 a3208494 [10.71.57.0|get|9|69973|0|0|0|2f6c6f67732f6163636573732e6c6f672e33392e677a|]
+Oct  7 10:51:06 10.71.57.0 a3208494 open "/logs/access.log.40.6.gz" flags READ mode 0666
+Oct  7 10:51:08 10.71.57.0 a3208494 close "/logs/access.log.40.6.gz" bytes read 12434 written 0
+Oct  7 10:51:08 10.71.57.0 a3208494 [10.71.57.0|get|2|12434|0|0|0|2f6c6f67732f6163636573732e6c6f672e34302e362e677a|]
+Oct  7 10:51:09 10.71.57.0 a3208494 open "/logs/access.log.40.4.gz" flags READ mode 0666
+Oct  7 10:51:13 10.71.57.0 a3208494 close "/logs/access.log.40.4.gz" bytes read 7222 written 0
+Oct  7 10:51:13 10.71.57.0 a3208494 [10.71.57.0|get|4|7222|0|0|0|2f6c6f67732f6163636573732e6c6f672e34302e342e677a|]
+Oct  7 10:51:13 10.71.57.0 a3208494 open "/logs/access.log.40.3.gz" flags READ mode 0666
+Oct  7 10:51:15 10.71.57.0 a3208494 close "/logs/access.log.40.3.gz" bytes read 10068 written 0
+Oct  7 10:51:15 10.71.57.0 a3208494 [10.71.57.0|get|2|10068|0|0|0|2f6c6f67732f6163636573732e6c6f672e34302e332e677a|]
+Oct  7 10:51:15 10.71.57.0 a3208494 open "/logs/access.log.40.1.gz" flags READ mode 0666
+Oct  7 10:51:17 10.71.57.0 a3208494 close "/logs/access.log.40.1.gz" bytes read 12816 written 0
+Oct  7 10:51:17 10.71.57.0 a3208494 [10.71.57.0|get|2|12816|0|0|0|2f6c6f67732f6163636573732e6c6f672e34302e312e677a|]
+Oct  7 10:51:17 10.71.57.0 a3208494 open "/logs/access.log.35.gz" flags READ mode 0666
+Oct  7 10:51:20 10.71.57.0 a3208494 close "/logs/access.log.35.gz" bytes read 87462 written 0
+Oct  7 10:51:20 10.71.57.0 a3208494 [10.71.57.0|get|3|87462|0|0|0|2f6c6f67732f6163636573732e6c6f672e33352e677a|]
+Oct  7 10:51:20 10.71.57.0 a3208494 close "/logs/access.log.37.gz" bytes read 58936 written 0
+Oct  7 10:51:20 10.71.57.0 a3208494 [10.71.57.0|get|75|58936|0|0|0|2f6c6f67732f6163636573732e6c6f672e33372e677a|]
+Oct  7 10:51:20 10.71.57.0 a3208494 open "/logs/sftp.log.36.gz" flags READ mode 0666
+Oct  7 10:51:21 10.71.57.0 a3208494 open "/logs/access.log.34.gz" flags READ mode 0666
+Oct  7 10:51:26 10.71.57.0 a3208494 close "/logs/sftp.log.36.gz" bytes read 23205 written 0
+Oct  7 10:51:26 10.71.57.0 a3208494 [10.71.57.0|get|6|23205|0|0|0|2f6c6f67732f736674702e6c6f672e33362e677a|]
+Oct  7 10:51:27 10.71.57.0 a3208494 open "/logs/access.log.33.gz" flags READ mode 0666
+Oct  7 10:51:28 10.71.57.0 a3208494 close "/logs/access.log.33.gz" bytes read 36408 written 0
+Oct  7 10:51:28 10.71.57.0 a3208494 [10.71.57.0|get|1|36408|0|0|0|2f6c6f67732f6163636573732e6c6f672e33332e677a|]
+Oct  7 10:51:29 10.71.57.0 a3208494 open "/logs/sftp.log.34.gz" flags READ mode 0666
+Oct  7 10:51:33 10.71.57.0 a3208494 close "/logs/sftp.log.34.gz" bytes read 25873 written 0
+Oct  7 10:51:33 10.71.57.0 a3208494 [10.71.57.0|get|4|25873|0|0|0|2f6c6f67732f736674702e6c6f672e33342e677a|]
+Oct  7 10:51:33 10.71.57.0 a3208494 open "/logs/traffic.db" flags READ mode 0666
+Oct  7 10:51:35 10.71.57.0 a3208494 close "/logs/traffic.db" bytes read 24576 written 0
+Oct  7 10:51:35 10.71.57.0 a3208494 [10.71.57.0|get|2|24576|0|0|0|2f6c6f67732f747261666669632e6462|]
+Oct  7 10:51:36 10.71.57.0 a3208494 open "/logs/access.log.38.gz" flags READ mode 0666
+Oct  7 10:51:38 10.71.57.0 a3208494 close "/logs/access.log.38.gz" bytes read 62262 written 0
+Oct  7 10:51:38 10.71.57.0 a3208494 [10.71.57.0|get|2|62262|0|0|0|2f6c6f67732f6163636573732e6c6f672e33382e677a|]
+Oct  7 10:51:38 10.71.57.0 a3208494 open "/logs/sftp.log" flags READ mode 0666

@@ -1,0 +1,1176 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Business Dashboard</title>
+
+  <!-- Bootstrap 5 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .sidebar {
+      background-color: #D51B1C;
+      color: #fff;
+    }
+
+    .sidebar .nav-link {
+      color: #fff;
+      margin: 4px 0;
+    }
+
+    .sidebar .nav-link.active,
+    .sidebar .nav-link:hover {
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 8px;
+    }
+
+    .card {
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    }
+
+    .output-box {
+      border: 1px dashed #ccc;
+      min-height: 150px;
+      border-radius: 8px;
+      padding: 15px;
+      background: #fff;
+      white-space: pre-line;
+    }
+
+    /* Initially hide dashboard */
+    #dashboardContainer {
+      display: none;
+    }
+
+    /* Center loading spinner */
+    #loadingScreen {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  </style>
+
+
+  <style>
+    .or-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: #666;
+      height: 100%;
+    }
+
+    /* Sirf Mobile view (<768px) ke liye */
+    @media (max-width: 767px) {
+
+      /* Inputs ki spacing thodi kam */
+      .form-control,
+      .form-select {
+        padding: 6px 8px;
+        font-size: 14px;
+      }
+
+      /* Row ko compact bana do */
+      .row.g-3 {
+        row-gap: 0.5rem;
+        /* spacing kam */
+      }
+
+      /* Button ko right side par bhejna */
+      #generateBtn {
+        width: 100%;
+        /* default full width */
+        justify-content: flex-end;
+        display: flex;
+      }
+
+      /* Button aur color picker ek row me (50% 50%) */
+      .mobile-row {
+        display: flex;
+        gap: 10px;
+      }
+
+      .mobile-row>div {
+        flex: 1;
+        /* 50% each */
+      }
+    }
+
+    .custom-generate-btn {
+      padding-left: 12px;
+      /* sirf content ke liye thoda space */
+      padding-right: 16px;
+      /* text ke right side thoda space */
+    }
+  </style>
+
+  <!-- Custom CSS -->
+  <style>
+    /* card background */
+    .custom-card {
+      background: #D51B1C;
+      /* halki red shade */
+      border-radius: 10px;
+    }
+
+    /* all input + select + textarea border color */
+    .form-control,
+    .form-select,
+    textarea {
+      border: 2px solid #D51B1C !important;
+      box-shadow: none !important;
+    }
+
+    /* focus state bhi red shade */
+    .form-control:focus,
+    .form-select:focus,
+    textarea:focus {
+      border-color: #D51B1C !important;
+      box-shadow: 0 0 5px rgba(234, 9, 83, 0.4) !important;
+    }
+
+    /* OR divider color */
+    .or-divider {
+      color: #D51B1C;
+    }
+
+    .btn-gradient {
+      background: linear-gradient(135deg, #fa6093, #8c0add);
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: 500;
+      transition: all 0.3s ease-in-out;
+    }
+
+    .btn-gradient:hover {
+      background: linear-gradient(135deg, #f5d4df, #6a1b9a);
+      transform: translateY(-2px);
+      box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .btn-gradient:active {
+      transform: scale(0.96);
+    }
+
+    .btn-outline-red {
+      border: 2px solid #D51B1C;
+      /* red border */
+      color: #D51B1C;
+      /* red text */
+      border-radius: 8px;
+      font-weight: 500;
+      background: transparent;
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline-red:hover {
+      background: #D51B1C;
+      /* red background */
+      color: #fff;
+      /* white text */
+    }
+
+    .col-md-6,
+    .col-md-4 {
+      /* background-color: yellow !important; */
+      margin-top: .4rem !important;
+    }
+
+    .fairuinsuer {
+      text-decoration: none;
+      color: white;
+    }
+  </style>
+  <style>
+    body{
+      height: inherit;
+      width: 100%;
+    }
+
+    /* Main content hidden until preloader ends */
+    #main-content {
+      display: none;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+
+    /* Preloader overlay */
+    #preloader {
+      position: fixed;
+      inset: 0;
+      background: #000000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    /* Logo itself as a circle */
+    .logo {
+      width: 100px;
+      height: 100px;
+      background: url('preloader.png') no-repeat center/cover;
+
+      animation: logoAnim 7s ease forwards;
+  animation: zoomEffect 3s infinite ease-in-out;
+
+    }
+
+    /* Logo fade in → hold → fade out */
+    @keyframes logoAnim {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+      }
+
+      15% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      85% {
+        opacity: 1;
+        transform: scale(1);
+      }
+
+      100% {
+        opacity: 0;
+        transform: scale(1.05);
+      }
+    }
+    /* Animation keyframes */
+@keyframes zoomEffect {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.08); /* thoda zoom in */
+  }
+  100% {
+    transform: scale(1); /* wapas normal */
+  }
+}
+  </style>
+
+  <style>
+    .nav-images {
+    display: flex;
+    flex-direction: column; /* default column (desktop) */
+    gap: 15px;
+    align-items: center;
+  }
+
+  .nav-images a {
+    width: 80px;
+  }
+
+  .nav-images img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+  }
+
+  .nav-images img:hover {
+    transform: scale(1.1);
+  }
+
+  /* Mobile view: row me convert */
+  @media (max-width: 768px) {
+    .nav-images {
+      flex-direction: row; /* row ban jaye */
+      flex-wrap: wrap !important;
+      justify-content: start;
+      gap: 2rem;
+    }
+
+    .nav-images a {
+      flex: 1 1 30%; /* ek row me 3 images */
+      max-width: 80px;
+    }
+  }
+  .nav-images .nav-link {
+  display: inline-block;
+  padding: 6px;
+  background-color: #ffffff; /* white background */
+  border-radius: 8px;       /* thoda gol corner, square look ke liye 0 kar do */
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15); /* halka shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.navbardashboard{
+  background-color: #D51B1C !important;
+
+}
+
+.nav-images .nav-link img {
+  width: 60px;   /* size adjust karna ho to badal lo */
+  height: 60px;
+  object-fit: contain;
+}
+
+/* Hover effect (optional) */
+.nav-images .nav-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+  /* Default: sidebar left */
+.sidebar {
+  background-color: #D51B1C;
+  color: #fff;
+}
+
+
+/* Mobile view (<992px): sidebar top */
+@media (max-width: 991px) {
+  .sidebar {
+    width: 100%;
+    order: -1; /* top pe le aao */
+    margin-bottom: 15px;
+  }
+}
+.bgaitol{
+  background-color: rgb(3, 45, 73) !important;
+}
+.menu-icon {
+    font-size: 3rem;  /* size bara */
+    font-weight: bold; /* lines thick lagengi */
+  }
+    
+  .signout {
+  margin-top: 1rem !important;
+  font-weight: 400 !important;
+  color: #333;
+  background-color: transparent;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+.signout:hover {
+  background-color: #f44336; /* Red shade */
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(244, 67, 54, 0.3);
+  transform: translateY(-2px);
+}
+@media screen and (max-width: 767px) {
+  .signout {
+    margin-top: -1.1rem !important;
+    /* background-color: purple !important; */
+    font-weight: 200 !important;
+  padding: .2rem !important;
+
+    font-size: .9rem !important;
+  }
+.a img{
+  margin-top: -20rem !important;
+}
+}
+.container-fluid{
+  flex-wrap: nowrap !important;
+  /* align-items: start !important; */
+}
+.bgtiktok{
+  background-color: rgb(228, 228, 228) !important;
+}
+.menulinkicon{
+  display: flex  !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+.bgmsgmenu{
+  background-color: #ffffff !important;
+} 
+ /* Mobile view me sticky remove kardo */
+    @media (max-width: 991px) {
+      .sidebar {
+        position: static !important;
+        height: auto !important;
+      }
+      footer{
+        padding: 1rem 3rem !important;
+      }
+    }
+</style>
+<style>
+    footer {
+      background-color: #000; /* black background */
+      color: #fff; /* white text */
+      font-family: Arial, sans-serif; /* Arial font */
+      font-weight: 300; /* thin font weight */
+      font-size: 14px; /* clean readable size */
+      /* padding: 15px 0;  */
+      padding: 3rem 10rem;
+      
+
+    }
+      /* Mobile view: row me convert */
+    @media (max-width: 991px) {
+      .nav-images {
+        flex-direction: row !important;
+        /* row ban jaye */
+        flex-wrap: wrap !important;
+        justify-content: start;
+        gap: 2rem;
+      }
+
+      .nav-images a {
+        flex: 1 1 30%;
+        /* ek row me 3 images */
+        max-width: 80px;
+      }
+    }
+
+    .tour-content {
+  background: #fff;
+  max-width: 650px; /* bigger size */
+  width: 95%;
+  padding: 40px 35px;
+  border-radius: 18px;
+  text-align: center;
+  animation: popup 0.4s ease;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+#tourDetails li {
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+  font-size: 0.95rem;
+  color: #444;
+}
+
+#tourDetails li::before {
+  content: "✔";
+  position: absolute;
+  left: 0;
+  color: #d51b1c;
+  font-weight: bold;
+}
+
+
+
+  </style>
+   <style>
+    
+
+    /* Main Content */
+    .main-content {
+      width: 100%;
+      padding: 30px;
+      background: #fff;
+      min-height: calc(100vh - 70px);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      gap: 30px;
+    }
+
+    /* Welcome Tour Box */
+    .welcome-box {
+      background: linear-gradient(135deg, #d51b1c, #9a1112);
+      color: #fff;
+      padding: 40px 35px;
+      border-radius: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+      animation: fadeInDown 0.8s ease;
+    }
+
+    .welcome-box h1 {
+      font-size: 2rem;
+      font-weight: 700;
+    }
+
+    .welcome-box p {
+      font-size: 1.05rem;
+      margin: 15px 0 25px;
+      line-height: 1.6;
+    }
+
+    .welcome-box .btn {
+      font-weight: 600;
+      border-radius: 30px;
+      padding: 12px 28px;
+      transition: 0.3s;
+    }
+
+    .welcome-box .btn-light:hover {
+      background: #f5f5f5;
+      transform: scale(1.05);
+    }
+
+    /* Tour Popup */
+    .tour-popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+      z-index: 2000;
+    }
+
+    .tour-content {
+      background: #fff;
+      max-width: 500px;
+      width: 90%;
+      padding: 30px;
+      border-radius: 16px;
+      text-align: center;
+      animation: popup 0.4s ease;
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    @keyframes popup {
+      from {
+        transform: scale(0.85);
+        opacity: 0;
+      }
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+@media (max-width: 576px) {  /* mobile screen */
+  #replayBtn , #startTourBtn {
+    margin-top: 12px;  /* jitna space chahiye utna de sakte ho */
+    width: 100%;       /* optional: pura width pe button ho jaye */
+  }
+}
+
+    .tour-step-title {
+      color: #d51b1c;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+    }
+
+    .tour-buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 20px;
+      gap: 10px;
+    }
+
+    .tour-buttons button {
+      flex: 1;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-next {
+      background: #d51b1c;
+      color: #fff;
+    }
+
+    .btn-next:hover {
+      background: #b01617;
+    }
+
+    .btn-skip {
+      background: #f5f5f5;
+      color: #333;
+    }
+
+    .btn-skip:hover {
+      background: #ddd;
+    }
+
+    @media (max-width: 768px) {
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-bottom: 1px solid #ddd;
+      }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+      }
+    }
+  </style>
+<link
+    href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+    rel="stylesheet"
+/>
+
+
+</head>
+
+<body>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="logo"></div>
+  </div>
+  <!-- Loading Screen -->
+  <div id="loadingScreen">
+    <div class="text-center">
+      <div class="spinner-border text-danger" role="status"></div>
+      <p class="mt-2 text-muted">Checking login...</p>
+    </div>
+  </div>
+
+  <!-- Dashboard Content -->
+  <div id="dashboardContainer main-content" style="background-color: white;">
+     <!-- Top Navbar -->
+    <nav class="navbar navbardashboard shadow-sm px-3">
+  <div class="container-fluid">
+
+    <span class="navbar-brand mb-0 h5 " >
+      <span class="me-3 text-white small" id="welcomeMsg">
+         <br> <strong>User</strong>
+      </span>
+    </span>
+
+   
+<div>
+  <!-- Mobile Menu Button -->
+<button class="btn btn-lg text-white d-block d-md-none" 
+  
+  type="button" data-bs-toggle="offcanvas" data-bs-target="#mobileSidebar">
+  <i class="bi bi-list menu-icon"></i>
+</button>
+<p onclick="logout()"  class="text-white signout">
+   Sign Out
+
+  <i class="ri-settings-2-line"></i>
+</p>
+</div>
+
+</div>
+<!-- Offcanvas Sidebar for Mobile -->
+<div   style="background-color:#D51B1C; color: white;"
+ class="offcanvas  offcanvas-end" tabindex="-1" id="mobileSidebar">
+  <div class="offcanvas-header">
+    <h5 class="text-white offcanvas-title">Menu</h5>
+    <button style="color: white;" type="button" class="btn-close  text-reset" data-bs-dismiss="offcanvas"></button>
+  </div>
+  <div class="offcanvas-body">
+    <ul class="list-unstyled">
+      <ul class="list-unstyled">
+  <!-- Dashboard / Home -->
+  <li>
+    <a href="dashboard.html" class="btn text-white w-100 text-start">
+      <i class="bi bi-house-door me-1"></i> Dashboard
+    </a>
+  </li>
+
+  <!-- Rewards -->
+  <li>
+    <a href="gamification.html" class="btn text-white w-100 text-start">
+      <i class="bi bi-gift me-1"></i> Rewards
+    </a>
+  </li>
+
+  <!-- Logout -->
+  <li>
+    <a href="#" class="btn text-white w-100 text-start"  onclick="logout()">
+      <i class="bi bi-box-arrow-right me-1"></i> Logout
+    </a>
+  </li>
+</ul>
+
+      <!-- aur bhi links add kar sakti ho -->
+    </ul>
+  </div>
+</div>
+
+  </div>
+</nav>
+
+
+    <div class="container-fluid">
+      <div class="row">
+      <!-- Sidebar (works for both desktop + mobile) -->
+<div class="col-lg-2 sidebar position-sticky top-0 p-3" >
+  <nav class="nav nav-images">
+    <a target="_blank" href="qr-demo.html" class="nav-link menulinkicon">
+              <img src="qr-logo.jpeg.jpg" alt="Gamification">
+            </a>
+    <a target="_blank" href="https://www.tiktok.com/@interactivebyimperium?_t=ZN-8zLPHw8KdTL&_r=1" class="nav-link menulinkicon bgtiktok" id="linkTiktok">
+      <img src="tiktokimage.png" alt="TikTok">
+    </a>
+   
+    <a target="_blank" href="ProfileOptimiser.html" class="nav-link menulinkicon" >
+      <img src="prefeumberlogo.jpg" alt="Profile Optimiser">
+    </a>
+     <a  target="_blank" href="aitooldashboard.html" class="nav-link menulinkicon bgaitol active" >
+      <img src="aitoolimage.png" alt="AI Business Generator">
+    </a>
+    <a target="_blank" href="whatsapp-connecter.html" class="nav-link menulinkicon bgmsgmenu" >
+      <img src="msgiconred.png" alt="AI Business Generator">
+    </a>
+    <a target="_blank" href="shopifymontering.html" class="nav-link menulinkicon bgmsgmenu" >
+      <img src="shopifymotiring.jpg" alt="AI Business Generator">
+    </a>
+     <a target="_blank" href="tasktracker.html" class="nav-link menulinkicon bgmsgmenu" >
+      <img src="tasktracker.jpg" alt="AI Business Generator">
+    </a>
+     <a target="_blank" href="gamification.html" class="nav-link menulinkicon">
+              <img src="gamification.jpeg" alt="Gamification">
+            </a>
+
+             <a target="_blank" href="pulse-report.html" class="nav-link menulinkicon">
+              <img src="pulse.jpeg" alt="Gamification">
+            </a>
+            
+  </nav>
+</div>
+
+
+        <!-- Main Content -->
+        <div class="col-lg-10  min-vh-100">
+          
+
+
+
+          <!-- new dashboardd -->
+
+
+
+         <!-- Main Content -->
+  <div class="main-content">
+    <div class="welcome-box">
+      <h1>Welcome to Your Dashboard Tour</h1>
+      <p>Explore powerful tools designed to boost your business. Click below to start your interactive tour 🚀</p>
+      <button class="btn btn-light" id="startTourBtn">Start Tour</button>
+      <button class="btn btn-outline-light ms-2" id="replayBtn">Replay Later</button>
+    </div>
+  </div>
+  <!-- Tour Popup -->
+<div class="tour-popup" id="tourPopup">
+  <div class="tour-content">
+    <div class="tour-icon mb-3">
+      <i class="bi bi-lightbulb-fill text-warning" style="font-size:3rem;"></i>
+    </div>
+    <h2 class="tour-step-title" id="tourTitle"></h2>
+    <p id="tourText" class="mb-3"></p>
+    
+    <!-- Extra content area -->
+    <ul class="list-unstyled text-start px-3" id="tourDetails">
+      <!-- Dynamic details will be injected here -->
+    </ul>
+    
+    <div class="tour-buttons mt-4">
+      <button class="btn-skip" id="skipTourBtn">Skip</button>
+      <button class="btn-next" id="nextStepBtn">Next</button>
+    </div>
+  </div>
+</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  
+  <!-- Footer -->
+  <footer class="text-center">
+    © 2025 Imperium Media Enterprises Ltd | Company No. 16496865 | 
+    A company registered in England and Wales. All rights reserved. 
+    For more details about our services and policies, please visit 
+    <a href="https://www.imperiummedia.co.uk" class="text-white text-decoration-none">
+      www.imperiummedia.co.uk
+    </a>.
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Font dropdown aur sabhi inputs select karna
+    const fontSelect = document.getElementById("fontSelect");
+    const allInputs = document.querySelectorAll("input.form-control, select.form-select");
+
+    // jab bhi user font dropdown change kare
+    fontSelect.addEventListener("change", () => {
+      const selectedFont = fontSelect.value;
+      allInputs.forEach(input => {
+        input.style.fontFamily = selectedFont;
+      });
+    });
+  </script>
+
+  <script>
+
+
+    document.getElementById("copyBtn").addEventListener("click", function () {
+      const image = document.getElementById("generatedImage");
+      const imageUrl = image.src;
+
+      // Clipboard me text (yani URL) copy karo
+      navigator.clipboard.writeText(imageUrl)
+        .then(() => alert("Image URL copied to clipboard!"))
+        .catch(err => console.error("Failed to copy: ", err));
+    });
+    // ---- Download button ----
+    document.getElementById("downloadBtn").addEventListener("click", function () {
+      const image = document.getElementById("generatedImage");
+      if (!image) {
+        alert("No image generated yet!");
+        return;
+      }
+
+      const link = document.createElement("a");
+      link.href = image.src;  // base64 data URI
+      link.download = "generated-image.png";
+      link.click();
+    });
+
+    // ---- Save button ----
+    document.getElementById("saveBtn").addEventListener("click", function () {
+      const image = document.getElementById("generatedImage");
+      if (!image) {
+        alert("No image generated yet!");
+        return;
+      }
+
+      localStorage.setItem("savedImage", image.src); // save base64 data URI
+      alert("Image saved successfully!");
+    });
+
+
+
+
+    // ---- 2. Page load hone par check karo agar image saved hai to dubara load karo
+    window.addEventListener("load", function () {
+      const savedImage = localStorage.getItem("savedImage");
+      if (savedImage) {
+        document.getElementById("outputBox").innerHTML = `
+      <p>✅ Previously saved image:</p>
+      <img id="generatedImage" src="${savedImage}" class="img-fluid rounded shadow mt-2"/>
+    `;
+      }
+    });
+    const linkGenerator = document.getElementById("linkGenerator");
+    const linkOptimiser = document.getElementById("linkOptimiser");
+    const linkGeneratorMobile = document.getElementById("linkGeneratorMobile");
+    const linkOptimiserMobile = document.getElementById("linkOptimiserMobile");
+
+    const generatorSection = document.getElementById("generatorSection");
+    const optimiserSection = document.getElementById("optimiserSection");
+
+    function showGenerator() {
+      generatorSection.style.display = "block";
+      optimiserSection.style.display = "none";
+      linkGenerator.classList.add("active");
+      linkOptimiser.classList.remove("active");
+      linkGeneratorMobile.classList.add("active");
+      linkOptimiserMobile.classList.remove("active");
+    }
+
+    function showOptimiser() {
+      generatorSection.style.display = "none";
+      optimiserSection.style.display = "block";
+      linkOptimiser.classList.add("active");
+      linkGenerator.classList.remove("active");
+      linkOptimiserMobile.classList.add("active");
+      linkGeneratorMobile.classList.remove("active");
+    }
+
+    // Desktop sidebar listeners
+    linkGenerator.addEventListener("click", (e) => { e.preventDefault(); showGenerator(); });
+    linkOptimiser.addEventListener("click", (e) => { e.preventDefault(); showOptimiser(); });
+
+    // Mobile sidebar listeners
+    linkGeneratorMobile.addEventListener("click", (e) => { e.preventDefault(); showGenerator(); });
+    linkOptimiserMobile.addEventListener("click", (e) => { e.preventDefault(); showOptimiser(); });
+
+  </script>
+
+
+  <script>
+    // Jab page load ho to pehle check karo login
+    window.addEventListener("DOMContentLoaded", () => {
+      const user = localStorage.getItem("user");
+
+      if (!user) {
+        // login nahi hai → sidha redirect
+        window.location.href = "login.html";
+      } else {
+        // login hai → dashboard show karo
+        const userData = JSON.parse(user);
+         document.getElementById("welcomeMsg").innerHTML = 
+  `<span style="font-weight:300;"> Welcome 👋 , <br> Logged in As </span> <span style="font-weight:500;" >${userData.name}</span>`;
+
+        document.getElementById("loadingScreen").style.display = "none";
+        document.getElementById("dashboardContainer").style.display = "block";
+      }
+    });
+
+    // Logout function
+    function logout() {
+      localStorage.removeItem("user");
+      window.location.href = "login.html";
+    }
+  </script>
+  <script>
+    function handleGenerateClick() {
+      console.log("Generate button clicked!");
+
+      // form values get karna
+      const businessName = document.getElementById("businessName").value;
+      const industry = document.getElementById("industry").value;
+      const targetAudience = document.getElementById("audience").value;
+      const platform = document.getElementById("platform").value;
+      const toneOfVoice = document.getElementById("tone").value;
+      const color = document.getElementById("colorPicker").value;
+      const description = document.getElementById("description").value;
+
+      if (!businessName || !industry || !targetAudience || !platform || !toneOfVoice || !color || !description) {
+        alert("Please fill all fields.");
+        return;
+      }
+
+      const outputBox = document.getElementById("outputBox");
+      outputBox.innerHTML = `<p>⏳ Generating image... please wait</p>`;
+
+      fetch("https://impremiumbackend.vercel.app/api/generate-post-image", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          businessName,
+          industry,
+          targetAudience,
+          platform,
+          toneOfVoice,
+          color,
+          description
+        }),
+      })
+        .then(res => res.json())
+        .then(data => {
+          if (data.image) {
+            outputBox.innerHTML = `
+          <p>✅ Image Generated Successfully:</p>
+          <img id="generatedImage" src="${data.image}" class="img-fluid rounded shadow mt-2"/>
+        `;
+          } else {
+            outputBox.innerHTML = `<p style="color:red;">❌ Failed to generate image</p>`;
+          }
+        })
+        .catch(err => {
+          console.error("Error:", err);
+          outputBox.innerHTML = `<p style="color:red;">⚠️ Error connecting to server</p>`;
+        });
+    }
+
+    // Dono button pe attach kar do
+    document.getElementById("generateBtnMobile").addEventListener("click", handleGenerateClick);
+    document.getElementById("generateBtnDesktop").addEventListener("click", handleGenerateClick);
+
+
+  </script>
+
+  <script>
+    const generateBtn = document.getElementById('generateBtnDesktop');
+    const fairUseBtn = document.getElementById('fairUseBtn'); // Fair Use button
+    const acceptBtn = document.getElementById('acceptAUP');
+    const rejectBtn = document.getElementById('rejectAUP');
+
+    // Check if user already accepted AUP
+    if (localStorage.getItem('aupAccepted') === 'true') {
+      generateBtn.disabled = false;      // Enable Generate button
+      if (fairUseBtn) fairUseBtn.classList.add('disabled'); // Disable Fair Use button
+      if (fairUseBtn) fairUseBtn.style.pointerEvents = 'none'; // Prevent clicks
+      if (fairUseBtn) fairUseBtn.setAttribute('title', 'Already accepted'); // Tooltip
+    }
+
+    // Accept AUP → Enable Generate Button and remember
+    acceptBtn.addEventListener('click', () => {
+      localStorage.setItem('aupAccepted', 'true'); // Save acceptance
+      generateBtn.disabled = false;
+      if (fairUseBtn) fairUseBtn.classList.add('disabled'); // Disable Fair Use button
+      if (fairUseBtn) fairUseBtn.style.pointerEvents = 'none'; // Prevent clicks
+      if (fairUseBtn) fairUseBtn.setAttribute('title', 'Already accepted'); // Tooltip
+      // Close modal
+      const modalEl = document.getElementById('aupModal');
+      const modal = bootstrap.Modal.getInstance(modalEl);
+      modal.hide();
+    });
+
+    // Reject AUP → Redirect to index.html
+    rejectBtn.addEventListener('click', () => {
+      localStorage.removeItem('aupAccepted'); // Clear acceptance if any
+      window.location.href = 'index.html';
+    });
+
+    // Optional safety check for Generate
+    generateBtn.addEventListener('click', () => {
+      if (localStorage.getItem('aupAccepted') !== 'true') {
+        alert("Please accept the Acceptable Use Policy first.");
+        return;
+      }
+      // Your Generate function logic here
+    });
+  </script>
+
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      const mainContent = document.getElementById("main-content");
+
+      // Total = 7s logo animation + 0.5s black screen = 7.5s
+      setTimeout(() => {
+        // Fade out preloader
+        preloader.style.transition = "opacity 0.8s ease";
+        preloader.style.opacity = 0;
+
+        setTimeout(() => {
+          preloader.style.display = "none";
+          mainContent.style.display = "grid";
+
+          // Trigger vibration on supported devices
+          if (navigator.vibrate) {
+            navigator.vibrate(200);
+          }
+        }, 800);
+      }, 3000);
+    });
+  </script>
+   <script>
+   const tourSteps = [
+  { 
+    title: "Dashboard Overview", 
+    text: "Your central hub for all insights & actions.", 
+    details: ["Quick snapshot of your business", "Easy navigation to tools", "Real-time updates"] 
+  },
+  { 
+    title: "Profile Optimiser", 
+    text: "Optimize your Google Business Profile for growth.", 
+    details: ["Improve visibility", "Boost local SEO", "Stand out from competitors"] 
+  },
+  { 
+    title: "AI Business Generator", 
+    text: "Generate content instantly using AI.", 
+    details: ["Create social posts", "Write ad copies", "Save time & effort"] 
+  },
+  { 
+    title: "WhatsApp Optimizer", 
+    text: "Automate responses and engage smarter.", 
+    details: ["Auto replies", "Quick templates", "Customer engagement"] 
+  },
+  {
+  "title": "Shopify Monitor",
+  "text": "Shopify stores ko real-time monitor karen — store status, SSL aur product changes instantly.",
+  "details": [
+    "Store uptime & downtime monitoring",
+    "SSL certificate check",
+    "Product/price/stock change alerts",
+    "Automatic store health checks"
+  ]
+}
+,
+{
+  "title": "Task Tracker",
+  "text": "Easily manage and assign tasks to every user in your team.",
+  "details": [
+    "Create and organize tasks",
+    "Assign tasks to specific users",
+    "Track progress in real-time",
+    "Boost productivity with clear accountability"
+  ]
+}
+,
+  { 
+    title: "Gamification", 
+    text: "Motivate teams with rewards & challenges.", 
+    details: ["Leaderboard", "Badges & rewards", "Boost motivation"] 
+  },
+  { 
+    title: "IMPERIUM Pulse", 
+    text: "Check real-time performance insights.", 
+    details: ["Business health", "AI-driven reports", "Decision support"] 
+  },
+  { 
+    title: "Tour Completed 🎉", 
+    text: "You’re all set! Explore freely.", 
+    details: ["Replay anytime", "Use tools with confidence", "Enjoy your dashboard"] 
+  }
+];
+
+function renderStep() {
+  const step = tourSteps[currentStep];
+  tourTitle.textContent = step.title;
+  tourText.textContent = step.text;
+  nextStepBtn.textContent = currentStep === tourSteps.length - 1 ? "Finish" : "Next";
+
+  // extra details inject
+  const detailsList = document.getElementById("tourDetails");
+  detailsList.innerHTML = "";
+  step.details.forEach(item => {
+    const li = document.createElement("li");
+    li.textContent = item;
+    detailsList.appendChild(li);
+  });
+}
+
+
+    document.getElementById("startTourBtn").addEventListener("click", () => {
+      currentStep = 0;
+      renderStep();
+      tourPopup.style.display = "flex";
+    });
+
+    nextStepBtn.addEventListener("click", () => {
+      if (currentStep < tourSteps.length - 1) {
+        currentStep++;
+        renderStep();
+      } else {
+        tourPopup.style.display = "none";
+        Swal.fire("Great!", "You have completed the tour 🎉", "success");
+      }
+    });
+
+    skipTourBtn.addEventListener("click", () => {
+      tourPopup.style.display = "none";
+      Swal.fire("Skipped", "You can replay the tour anytime.", "info");
+    });
+
+    document.getElementById("replayBtn").addEventListener("click", () => {
+      Swal.fire("Reminder", "You can start the tour anytime by clicking Start Tour.", "info");
+    });
+
+    function logout() {
+      Swal.fire({
+        title: "Are you sure?",
+        text: "You will be logged out!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#d51b1c",
+        cancelButtonColor: "#555",
+        confirmButtonText: "Yes, Logout"
+      }).then((result) => {
+        if (result.isConfirmed) {
+          localStorage.removeItem("user");
+          window.location.href = "login.html";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>

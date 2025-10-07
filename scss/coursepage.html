@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Imperium Media Group - Home - Bury - Manchester</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+ <meta name="description" content="Helping companies to maximize their potential on new and existing technologies.">
+    <meta name="author" content="ImperiumMediaHoldings">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<style>
+    /* colors being used in this page */
+:root {
+  --shopify-heading:#0a2342;
+  --shopify-accent:#e91e63;
+  --shopify-bg:#ffffff;
+  --shopify-bg-alt:#f5f7fe;
+  --shopify-muted:#555555;
+  --shopify-line:#e5e5e5;
+}
+
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  color:#111;
+  line-height:1.6;
+  background: var(--shopify-bg);
+}
+
+h1,h2,h3 {
+  color:var(--shopify-heading);
+}
+
+.container {
+  max-width:1100px;
+  margin:auto;
+  padding:40px 20px;
+}
+
+/* hero part with background image */
+.hero {
+  position:relative;
+  text-align:center;
+  padding:120px 20px;
+  background:url('https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&w=1400&q=80') no-repeat center/cover;
+  color:#fff;
+}
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:rgba(0,0,0,0.55);
+  z-index:0;
+}
+.hero-inner {
+  position:relative;
+  z-index:1;
+}
+.hero-inner h1 {
+  font-size:2.8rem;
+  margin-bottom:12px;
+  color:#fff;
+}
+.hero-inner p {
+  max-width:650px;
+  margin:0 auto 24px;
+  color:#f1f1f1;
+}
+.btn {
+  background:var(--shopify-accent);
+  color:#fff;
+  padding:12px 28px;
+  border-radius:6px;
+  font-weight:bold;
+  box-shadow:0 4px 14px rgba(233,30,99,0.35);
+  text-decoration:none;
+  display:inline-block;
+}
+.btn:hover {
+  background:#c2185b;
+  box-shadow:0 6px 20px rgba(233,30,99,0.5);
+}
+
+/* general section spacing */
+.section {
+  margin:70px 0;
+}
+
+/* 2 column layout */
+.split {
+  display:grid;
+  gap:30px;
+  grid-template-columns:1fr 1fr;
+  align-items:center;
+}
+.split.reverse .text{order:2}
+.split.reverse .image{order:1}
+@media(max-width:850px){
+  .split{grid-template-columns:1fr;}
+}
+.text p {
+  color:var(--shopify-muted);
+}
+.image img {
+  width:100%;
+  border-radius:12px;
+  box-shadow:0 6px 18px rgba(10,35,66,0.25);
+  transition:transform 0.3s ease, box-shadow 0.3s ease;
+}
+.image img:hover {
+  transform:scale(1.05);
+  box-shadow:0 10px 28px rgba(10,35,66,0.4);
+}
+
+/* slider cards section */
+.cards {
+  text-align:center;
+}
+.slider-wrapper {
+  overflow:hidden;
+  position:relative;
+  margin-top:32px;
+}
+.slider {
+  display:flex;
+  gap:24px;
+  transition:transform 0.5s ease-in-out;
+}
+.card {
+  flex:0 0 280px;
+  background:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  text-align:left;
+  box-shadow:0 4px 14px rgba(10,35,66,0.12);
+  transition:transform .3s, box-shadow .3s;
+}
+.card:hover {
+  transform:translateY(-8px) scale(1.02);
+  box-shadow:0 10px 28px rgba(10,35,66,0.3);
+}
+.card img {
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  transition:transform .4s ease;
+}
+.card:hover img {
+  transform:scale(1.08);
+}
+.card h3 {
+  padding:16px;
+  font-size:1.2rem;
+}
+.card p {
+  padding:0 16px 20px;
+  color:var(--shopify-muted);
+}
+.slider-controls {
+  margin-top:15px;
+}
+.slider-controls button {
+  background:var(--shopify-accent);
+  color:#fff;
+  border:none;
+  padding:10px 16px;
+  margin:0 6px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:18px;
+  box-shadow:0 4px 12px rgba(233,30,99,0.35);
+}
+.slider-controls button:hover{
+  background:#c2185b;
+}
+
+/* learning points */
+.learn {
+  text-align:center;
+  margin-bottom:40px; 
+}
+.learn-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:20px;
+  margin-top:30px;
+}
+.learn-item {
+  background:#fff;
+  padding:20px;
+  border-radius:14px;
+  font-weight:500;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  color:var(--shopify-heading);
+  box-shadow:0 4px 12px rgba(10,35,66,0.12);
+  transition:all 0.3s ease;
+}
+.learn-item i {
+  background:var(--shopify-accent);
+  color:#fff;
+  font-size:1.3rem;
+  padding:10px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.learn-item:hover {
+  transform:translateY(-6px) scale(1.03);
+  box-shadow:0 8px 20px rgba(233,30,99,0.35);
+}
+
+/* full width sections */
+.full-section {
+  width:100%;
+  padding:70px 20px;
+  background:var(--shopify-bg-alt);
+}
+.inner-box {
+  max-width:1200px;
+  margin:auto;
+  background:#fff;
+  padding:40px;
+  border-radius:18px;
+  box-shadow:0 6px 20px rgba(10,35,66,0.15);
+}
+
+/* curriculum */
+.curriculum-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:24px;
+  margin-top:30px;
+}
+.day-card {
+  background:#fff;
+  padding:20px;
+  border-radius:14px;
+  border-left:6px solid var(--shopify-accent);
+  box-shadow:0 4px 14px rgba(10,35,66,0.15);
+  transition:.3s;
+}
+.day-card:hover {
+  transform:translateY(-6px);
+  box-shadow:0 8px 22px rgba(10,35,66,0.25);
+}
+
+/* schedule */
+.schedule-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:24px;
+  margin-top:30px;
+}
+.schedule-item {
+  background:#fff;
+  padding:20px;
+  border-radius:14px;
+  text-align:center;
+  font-weight:500;
+  color:var(--shopify-heading);
+  box-shadow:0 4px 12px rgba(10,35,66,0.15);
+  transition:.3s;
+}
+.schedule-item:hover {
+  transform:translateY(-5px) scale(1.02);
+  box-shadow:0 8px 20px rgba(233,30,99,0.4);
+}
+
+/* CTA */
+.cta {
+  text-align:center;
+  padding:60px 20px;
+  border-top:1px solid var(--shopify-line);
+}
+.cta p {
+  color:var(--shopify-muted);
+}
+.courseshero{
+    margin-top: 10rem;
+}
+</style>
+
+    <!-- Favicon -->
+  
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600;700&family=Open+Sans:wght@400;500&display=swap" rel="stylesheet">  
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Spinner Start -->
+    <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" role="status" style="width: 3rem; height: 3rem;"></div>
+    </div>
+    <!-- Spinner End -->
+
+
+  
+   
+      <!-- Navbar Start -->
+    <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
+        <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
+            <div class="col-lg-6 px-5 text-start">
+                <small><i class="fa fa-map-marker-alt text-primary me-2"></i>Atrium House, 574 Manchester Rd, Bury BL9 9SW</small>
+                <small class="ms-4"><i class="fa fa-clock text-primary me-2"></i>9.00 am - 9.00 pm</small>
+            </div>
+             <div class="col-lg-6 px-5 text-end">
+                <small><i class="fa fa-envelope text-primary me-2"></i>info@imperiummedia.co.uk</small>
+                <small class="ms-4"><i class="fa fa-phone-alt text-primary me-2"></i>0800 009 6347</small>
+            </div>
+        </div>
+
+        <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
+            <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
+                <h1 class="display-5 text-primary m-0">I M P E R I U M</h1>
+				    <small>M E D I A  - G R O U P</small>
+            </a>
+            <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="navbar-nav ms-auto p-4 p-lg-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a href="about.html" class="nav-item nav-link">About</a>
+					  <div class="nav-item dropdown">
+					  <a href="service.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">What We Do</a>
+					        <div class="dropdown-menu border-light m-0">
+							  <a href="websitedesign.html" class="dropdown-item">Website Development </a>
+							    <a href="marketingservices.html" class="dropdown-item">Marketing</a>
+							   <a href="startuprogramme.html" class="dropdown-item">Start Up Programme</a>
+							     <a href="itsupportservice.html" class="dropdown-item">IT Support</a>
+								    <a href="multilingualmarketing.html" class="dropdown-item">Multilingual Marketing</a>
+							   <a href="googlemybusiness.html" class="dropdown-item">Google My Business </a>
+							 
+							</div>
+							</div>
+                    <a href="clients.html" class="nav-item nav-link">Clients</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Companies</a>
+                        <div class="dropdown-menu border-light m-0">
+                            <a href="https://www.ahaccountant.co.uk" class="dropdown-item">AH Accountants</a>
+								<a href="https://www.tiktok.com/@interactivebyimperium" class="dropdown-item">Interactive By Imperium</a>
+                        </div>
+                    </div>
+                    <a href="https://uk.indeed.com/cmp/Imperium-Media-Group-Limited/jobs" class="nav-item nav-link"> Careers</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                </div>
+                <div class="d-none d-lg-flex ms-2">
+                    <a class="btn btn-light btn-sm-square rounded-circle ms-3" href="https://www.facebook.com/ImperiumMedia.A/">
+                        <small class="fab fa-facebook-f text-primary"></small>
+                    </a>
+                  
+                    <a class="btn btn-light btn-sm-square rounded-circle ms-3" href="https://uk.linkedin.com/company/imperiummedia">
+                        <small class="fab fa-linkedin-in text-primary"></small>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- Navbar End -->
+    
+
+     <!-- hero section -->
+  <section class="hero courseshero">
+    <div class="hero-inner">
+      <h1>Shopify Mastery Training</h1>
+      <p>Learn how to build, customize, and grow your Shopify store with expert-led guidance.</p>
+      <a href="#enroll" class="btn">Enroll Now</a>
+    </div>
+  </section>
+
+  <main class="container">
+
+    <!-- overview -->
+    <section id="overview" class="section split">
+      <div class="text">
+        <h2>Course Overview</h2>
+        <p>
+          A practical, hands-on training program designed to give you complete mastery of Shopify. 
+          Over 4 days, you’ll set up a store, customize themes, add products, configure payments, 
+          and launch marketing campaigns.
+        </p>
+      </div>
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=800&q=80" alt="Laptop with Shopify dashboard">
+      </div>
+    </section>
+
+    <!-- why choose -->
+    <section class="section cards">
+      <h2>Why Choose This Course?</h2>
+      <div class="slider-wrapper">
+        <div class="slider" id="slider">
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=600&q=80" alt="Expert Trainer">
+            <h3>Expert Trainers</h3>
+            <p>Learn directly from professionals with years of Shopify development experience.</p>
+          </div>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1551836022-4c4c79ecde51?auto=format&fit=crop&w=600&q=80" alt="Hands-on Training">
+            <h3>Hands-On Approach</h3>
+            <p>Work on a real store setup step-by-step with guidance at every stage.</p>
+          </div>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=600&q=80" alt="Industry Skills">
+            <h3>Industry-Relevant Skills</h3>
+            <p>Finish with practical knowledge you can use immediately to scale a business.</p>
+          </div>
+          <div class="card">
+            <img src="https://images.unsplash.com/photo-1504691342899-4d92b50853e1?auto=format&fit=crop&w=600&q=80" alt="Certification">
+            <h3>Certification</h3>
+            <p>Receive a certificate that showcases your Shopify expertise to employers.</p>
+          </div>
+        </div>
+      </div>
+      <div class="slider-controls">
+        <button onclick="slide(-1)"><i class="ri-arrow-left-s-line"></i></button>
+        <button onclick="slide(1)"><i class="ri-arrow-right-s-line"></i></button>
+      </div>
+    </section>
+
+    <!-- what you'll learn -->
+    <section id="learn" class="section learn">
+      <h2>What You’ll Learn</h2>
+      <div class="learn-grid">
+        <div class="learn-item"><i class="ri-settings-3-line"></i> Shopify Admin & Settings</div>
+        <div class="learn-item"><i class="ri-brush-line"></i> Theme Customization</div>
+        <div class="learn-item"><i class="ri-shopping-bag-3-line"></i> Products & Collections</div>
+        <div class="learn-item"><i class="ri-bank-card-line"></i> Payments & Shipping</div>
+        <div class="learn-item"><i class="ri-plug-line"></i> Apps & Automations</div>
+        <div class="learn-item"><i class="ri-rocket-2-line"></i> SEO & Marketing</div>
+        <div class="learn-item"><i class="ri-bar-chart-2-line"></i> Analytics & Reporting</div>
+      </div>
+    </section>
+
+    <!-- who is this for -->
+    <section class="section split reverse">
+      <div class="image">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80" alt="Business training">
+      </div>
+      <div class="text">
+        <h2>Who Is This Course For?</h2>
+        <p>
+          Entrepreneurs, marketers, business managers, or anyone wanting to run their own online store. 
+          No technical background required — just the passion to grow your e-commerce brand.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- curriculum -->
+  <section id="curriculum" class="full-section">
+    <div class="inner-box">
+      <h2>Day-by-Day Curriculum</h2>
+      <div class="curriculum-grid">
+        <div class="day-card"><h3>Day 1</h3><p>Store setup, Admin overview, domain configuration, and planning.</p></div>
+        <div class="day-card"><h3>Day 2</h3><p>Theme structure, sections, UX customization, and Liquid basics.</p></div>
+        <div class="day-card"><h3>Day 3</h3><p>Products & collections, payments, shipping, apps & automation.</p></div>
+        <div class="day-card"><h3>Day 4</h3><p>SEO foundations, campaigns, analytics, and final project review.</p></div>
+      </div>
+    </div>
+  </section>
+
+ 
+  
+  <!-- cta -->
+  <section id="enroll" class="section cta">
+    <h2>Ready to Become a Shopify Expert?</h2>
+    <p>Join our Shopify Mastery Training and start your journey today.</p>
+    <a href="#" class="btn">Enroll Today</a>
+  </section>
+
+
+
+        
+
+    
+  
+     <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5">
+            <div class="row g-5">
+            
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Our Office</h4>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Atrium House, 574 Manchester Rd, Bury BL9 9SW</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>0800 861 1045</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@imperiummedia.org.uk</p>
+                    <div class="d-flex pt-2">
+                      
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://www.facebook.com/ImperiumMedia.A/"><i class="fab fa-facebook-f"></i></a>
+           
+                        <a class="btn btn-square btn-outline-light rounded-circle me-2" href="https://uk.linkedin.com/company/imperiummedia"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+               
+                <div class="col-lg-3 col-md-6">
+                    <h4 class="text-white mb-4">Site Map</h4>
+              <a class="btn btn-link" href="about.html">About Us</a>
+                    <a class="btn btn-link" href="contact.html">Contact Us</a>
+                    <a class="btn btn-link" href="service.html">Our Services</a>
+        <a class="btn btn-link" href="jobs.html"> Submit Your CV</a>
+        <a class="btn btn-link" href="termsandconditions.html"> Terms and Conditions </a>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                  <h4 class="text-white mb-4">Customer Support </h4>
+            
+             <a class="btn btn-link" href="tel:07718927613">Support Line</a>
+                 <a class="btn btn-link" href="https://linktr.ee/imperiummedia"> Linktree</a>
+                    <h4 class="text-white mb-4">Imperium Games </h4>
+ <a class="btn btn-link" href="https://www.interactive.imperiummedia.org.uk/">Imperium Interactive</a>
+                </div>
+                <div class="col-lg-2 col-md-6">
+                 <img class="img-fluid rounded" src="img/googlepartner.png"  alt="">
+                    <img class="img-fluid rounded" src="img/trustpilot.png"  alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer End -->
+
+
+
+
+    <!-- Copyright Start -->
+    <div class="container-fluid copyright py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                    &copy; <a class="border-bottom" href="#">Imperium Media Group Limited </a>, All Right Reserved. 
+					<br>
+					Company Number - 15176383
+                </div>
+               
+            </div>
+        </div>
+    </div>
+    <!-- Copyright End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/counterup/counterup.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <!-- Brevo Conversations {literal} -->
+<script>
+    (function(d, w, c) {
+        w.BrevoConversationsID = '657ce0425a56fa4fb66772dd';
+        w[c] = w[c] || function() {
+            (w[c].q = w[c].q || []).push(arguments);
+        };
+        var s = d.createElement('script');
+        s.async = true;
+        s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+        if (d.head) d.head.appendChild(s);
+    })(document, window, 'BrevoConversations');
+</script>
+<!-- /Brevo Conversations {/literal} -->
+
+ <script>
+    let current=0;
+    function slide(direction){
+      const slider=document.getElementById("slider");
+      const cards=slider.children.length;
+      const cardWidth=slider.children[0].offsetWidth+24; 
+      current+=direction;
+      if(current<0) current=cards-1;
+      if(current>=cards) current=0;
+      slider.style.transform=`translateX(${-current*cardWidth}px)`;
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imperium Pulse</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: linear-gradient(45deg, #0a0612 0%, #2b0e25 50%, #0a0612 100%);
+      font-family: "Poppins", sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 20px;
+    }
+
+    .container {
+      text-align: center;
+      padding: 20px;
+      max-width: 500px;
+      width: 100%;
+    }
+
+    .logo-container {
+      width: 65px;
+      height: 65px;
+      margin: 0 auto 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .title {
+      font-size: 24px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      margin-bottom: 20px;
+      color: #ffffff;
+    }
+
+    .card {
+      background: linear-gradient(145deg, rgba(40, 0, 0, 0.3) 0%, rgba(15, 0, 0, 0.55) 50%, rgba(0, 0, 0, 0.8) 100%);
+      backdrop-filter: blur(20px);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(180, 38, 38, 0.25);
+      border: 1px solid rgba(220, 38, 38, 0.4);
+    }
+
+    .mood-section {
+      margin-bottom: 20px;
+    }
+
+    .mood-title {
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .mood-circle {
+      width: 160px;
+      height: 160px;
+      margin: 0 auto 20px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-container {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: conic-gradient(from -90deg, #ff0000 0deg, #ff3b3b 90deg, #ff5a5a 200deg, #ff8a8a 270deg, #2a2a2a 270deg, #2a2a2a 360deg);
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .progress-container::before {
+      content: '';
+      width: 140px;
+      height: 140px;
+      background: radial-gradient(circle, #0f0000 0%, #000000 70%);
+      border-radius: 50%;
+      position: absolute;
+    }
+
+    .mood-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .mood-percentage {
+      font-size: 36px;
+      font-weight: 400;
+    }
+
+    .mood-status {
+      font-size: 16px;
+      color: #a1a1aa;
+    }
+
+    .points-section {
+      background: linear-gradient(135deg, rgba(220, 38, 38, 0.15) 0%, rgba(153, 27, 27, 0.25) 50%, rgba(127, 29, 29, 0.35) 100%);
+      border-radius: 12px;
+      padding: 15px;
+      margin-bottom: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .points-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .coin-icon {
+      width: 35px;
+      height: 35px;
+      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: bold;
+      color: white;
+    }
+
+    .points-value {
+      font-size: 26px;
+      font-weight: 400;
+    }
+
+    .pulse-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .pulse-field {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      width: 100%;
+    }
+
+    .pulse-field label {
+      font-size: 16px;
+      margin-bottom: 8px;
+    }
+
+    .pulse-field textarea {
+      width: 100%;
+      padding: 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(220, 38, 38, 0.4);
+      background: rgba(40, 0, 0, 0.4);
+      color: #ffffff;
+      font-size: 14px;
+      resize: vertical;
+      min-height: 50px;
+    }
+
+    .generate-btn {
+      width: 100%;
+      padding: 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(220, 38, 38, 0.4);
+      background: linear-gradient(135deg, rgba(60, 0, 0, 0.4), rgba(0, 0, 0, 0.6));
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .pulse-line {
+      height: 2px;
+      background: linear-gradient(90deg, transparent 0%, rgba(220, 38, 38, 0.3) 20%, #dc2626 50%, rgba(220, 38, 38, 0.3) 80%, transparent 100%);
+      margin-top: 20px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 480px) {
+      .title { font-size: 20px; }
+      .mood-circle, .progress-container { width: 120px; height: 120px; }
+      .progress-container::before { width: 100px; height: 100px; }
+      .mood-percentage { font-size: 28px; }
+      .points-value { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="logo-container">
+      <img class="logo-image" src="favicon-16x16.png" alt="Imperium Logo">
+    </div>
+    <h1 class="title">IMPERIUM PULSE</h1>
+
+    <div class="card">
+      <div class="mood-section">
+        <h2 class="mood-title">Mood</h2>
+        <div class="mood-circle">
+          <div class="progress-container">
+            <div class="mood-content">
+              <div class="mood-percentage">75%</div>
+              <div class="mood-status">Neutral</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="points-section">
+        <div class="points-row">
+          <div class="coin-icon">$</div>
+          <div>
+            <div>Points</div>
+            <div class="points-value">482</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pulse-form">
+        <div class="pulse-field">
+          <label for="busy">What kept you busy this week?</label>
+          <textarea id="busy" placeholder="Your answer..."></textarea>
+        </div>
+        <div class="pulse-field">
+          <label for="win">What was your biggest win?</label>
+          <textarea id="win" placeholder="Your answer..."></textarea>
+        </div>
+        <div class="pulse-field">
+          <label for="challenge">What challenge did you face?</label>
+          <textarea id="challenge" placeholder="Your answer..."></textarea>
+        </div>
+        <button class="generate-btn" onclick="generateSummary()">Generate My Pulse</button>
+      </div>
+
+      <div class="pulse-line"></div>
+    </div>
+  </div>
+
+  <script>
+    async function generateSummary() {
+      const busy = document.getElementById('busy').value;
+      const win = document.getElementById('win').value;
+      const challenge = document.getElementById('challenge').value;
+      const userId = '12345';
+      try {
+        const res = await fetch('http://localhost:5000/api/pulse/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ busy, win, challenge, userId })
+        });
+        const data = await res.json();
+        document.querySelector('.mood-percentage').textContent = `${Number(data.points) * 10}%`;
+        document.querySelector('.mood-status').textContent = data.ai_summary_json;
+        document.querySelector('.points-value').textContent = data.points;
+        alert('Pulse generated successfully!');
+      } catch (err) {
+        console.error(err);
+        alert('Error generating pulse. Check console.');
+      }
+    }
+  </script>
+</body>
+</html>
