@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Imperium Media Group - Home - Bury - Manchester</title>
+    <title>Imperium Media - Home - Bury - Manchester</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="description" content="Helping companies to maximize their potential on new and existing technologies.">
     <meta name="author" content="ImperiumMediaHoldings">
@@ -37,14 +37,14 @@
     <link href="css/style.css" rel="stylesheet">
 <style>
     .container-fluid.py-5 {
-        margin-top: 120px !important;
+        /* margin-top: 120px !important; */
         padding-left: 30px !important;
         padding-right: 30px !important;
     }
 
     @media (max-width: 768px) {
         .container-fluid.py-5 {
-            margin-top: 100px !important;
+            /* margin-top: 100px !im/portant; */
             padding-left: 15px !important;
             padding-right: 15px !important;
         }
@@ -74,6 +74,58 @@
         padding-left: 10px !important;
         padding-right: 10px !important;
     }
+    .hero-section {
+    position: relative;
+    background: url('websitesimaee.jpg') center center/cover no-repeat;
+    width: 100%;
+    padding: 100px 20px; /* Adjust for spacing */
+}
+
+.hero-section .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.55); /* Dark overlay */
+    z-index: 1;
+}
+
+.hero-section .content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 70px 15px;
+    }
+    .hero-section h1 {
+        font-size: 2rem;
+    }
+    .hero-section p {
+        font-size: 1rem;
+    }
+    .container {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+        /* padding-top: 6rem !important; */
+
+    }
+    .container-fluid {
+        padding-left: 30px !important;
+        padding-right: 30px !important;
+    }
+}
+.cont1 {
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        padding-top: 10rem !important;
+
+    }
+    
 </style>
 </head>
 
@@ -179,17 +231,24 @@
         </nav>
     </div>
     <!-- Navbar End -->
-
+<div class="container cont1">
+      <!-- Section with Background Image and Overlay -->
+<section class="hero-section text-center mx-auto wow fadeInUp" data-wow-delay="0.1s">
+    <div class="overlay"></div>
+    <div class="content">
+        <h1 class="display-5 mb-5 text-white">Free WordPress Themes</h1>
+        <p class="mb-5 text-white">
+            Download our professionally designed WordPress themes for free. Perfect for businesses,
+            portfolios, and personal websites.
+        </p>
+    </div>
+</section>
   <!-- WordPress Themes Section Start -->
-<div class="container-fluid py-5">
-    <div class="container">
-        <div class="text-center mx-auto wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
-            <h1 class="display-5 mb-5">Free WordPress Themes</h1>
-            <p class="mb-5">Download our professionally designed WordPress themes for free. Perfect for businesses,
-                portfolios, and personal websites.</p>
-        </div>
+<div class="container-fluid py-5 ">
+    
 
-        <div class="row g-4">
+
+        <div class="row g-4 ">
             <!-- Theme 1 - Keep original style -->
             <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                 <div class="service-item bg-light h-100 p-4 theme-card">
@@ -229,9 +288,7 @@
 
         <h4 class="mb-3">AutoHub Rentals</h4>
         <p class="mb-4">
-            A modern and responsive WordPress theme designed for car and vehicle rental businesses. 
-            AutoHub Rentals offers elegant booking pages, vehicle listings, pricing tables, and a contact form — 
-            everything you need to showcase and manage your rental fleet online with ease.
+          A modern, responsive WordPress theme for car rental businesses. AutoHub Rentals includes booking pages, pricing tables, and a contact form  everything to manage your fleet online.
         </p>
         <div class="d-flex justify-content-between align-items-center">
             <span class="badge bg-primary">Free</span>
@@ -375,7 +432,7 @@
                     <h4 class="text-white mb-4">Our Office</h4>
                     <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Atrium House, 574 Manchester Rd, Bury BL9
                         9SW</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@imperiummedia.org.uk</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@imperiummedia.co.uk</p>
                     <div class="d-flex pt-2">
 
                         <a class="btn btn-square btn-outline-light rounded-circle me-2"
@@ -428,7 +485,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Imperium Media Group </a>, All Right Reserved.
+                    &copy; <a class="border-bottom" href="#">Imperium Media </a>, All Right Reserved.
                     <br>
                 </div>
 
