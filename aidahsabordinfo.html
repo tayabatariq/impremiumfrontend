@@ -255,6 +255,56 @@
 }
 
     </style>
+    
+<!-- Animation Styles -->
+<style>
+  .animate-card {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeSlideUp 0.8s ease-out forwards;
+  }
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-bounce {
+    animation: bounce 2s infinite ease-in-out;
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+  }
+</style>
+
+<!-- Custom Animation -->
+<style>
+.card-animate {
+  transition: all 0.4s ease;
+}
+.card-animate:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0 10px 25px rgba(220, 53, 69, 0.15);
+}
+</style>
+<!-- Section 5: Gamification End -->
+ <!-- Animation -->
+<style>
+section:hover .d-inline-flex {
+  transform: scale(1.1);
+  transition: 0.4s ease;
+}
+</style>
+
+<!-- Optional Hover Effect -->
+<style>
+.border:hover {
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+  transition: 0.3s ease;
+}
+</style>
+
+
 </head>
 
 <body>
@@ -342,237 +392,439 @@
     </div>
     <!-- Navbar End -->
     
-    <div class="container cont1">
-        <!-- Section with Background Image and Overlay -->
-        <section class="hero-section text-center mx-auto wow fadeInUp" data-wow-delay="0.1s">
-            <div class="overlay"></div>
-            <div class="content">
-                <h1 class="display-5 mb-5 text-white">Free WordPress Themes</h1>
-                <p class="mb-5 text-white">
-                    Download our professionally designed WordPress themes for free. Perfect for businesses,
-                    portfolios, and personal websites.
-                </p>
-            </div>
-        </section>
-    <!-- ======= 👇 Ad Card at start of 2nd Row (Professional Style) ======= -->
-<div class="col-12 mt-5 d-flex justify-content-center">
-    <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-        <div class="card border-0 shadow-lg text-center p-3 ad-card">
-            <div class="card-body d-flex flex-column justify-content-center align-items-center">
-                <h5 class="card-title fw-bold mb-2">Ad Space Available</h5>
-                <p class="card-text mb-3 text-muted">
-                    We are offering this space for ads at just <strong>£9.99/month</strong>.
-                </p>
-                
-            </div>
+     <!-- Page Header Start -->
+    <div class="container-fluid page-header mb-5 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container">
+            <h1 class="display-3 mb-4 animated slideInDown">AI Dashboard</h1>
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb mb-0">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">AI Dashboard</li>
+                </ol>
+            </nav>
         </div>
     </div>
-</div>
+    <!-- Page Header End -->
+   <!-- Section Start -->
+<section class="py-5 mt-5 bg-white">
+  <div class="container mt-5">
+    <div class="row align-items-center g-4">
+
+      <!-- Icon Column -->
+      <div class="col-md-2 text-center">
+        <div  class="icon-box  bg-opacity-10 text-danger d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 70px; height: 70px; background-color: #ea0953;">
+          <i class="bi bi-speedometer2 fs-2"></i>
+        </div>
+      </div>
+
+      <!-- Content Column -->
+      <div class="col-md-10">
+        <h2 class="fw-bold text-dark mb-2">Dashboard Overview</h2>
+        <p class="text-muted mb-3">
+          Get a real-time overview of your business performance. Monitor growth, track activity, 
+          and manage everything from one simple, clean interface.
+        </p>
+        <ul class="list-unstyled mb-0">
+          <li><i class="bi bi-check-circle-fill  me-2" style="color: #ea0953;"></i> Real-time performance tracking</li>
+          <li><i class="bi bi-check-circle-fill  me-2" style="color: #ea0953;"></i> Customizable widgets & reports</li>
+          <li><i class="bi bi-check-circle-fill  me-2" style="color: #ea0953;"></i> Alerts & notifications center</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+<!-- Section End -->
+
+<!-- Section 3 Start -->
+<section class="py-5 bg-white">
+  <div class="container text-center">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+
+        <!-- Icon -->
+        <div class="mb-4">
+          <div class="icon-box bg-opacity-10 text-danger d-inline-flex align-items-center justify-content-center rounded-circle" style="width: 90px; height: 90px; background-color: #ea0953;">
+            <i class="bi bi-magic fs-1"></i>
+          </div>
+        </div>
+
+        <!-- Heading -->
+        <h2 class="fw-bold text-dark mb-3">AI Image Generator</h2>
+
+        <!-- Description -->
+        <p class="text-muted mb-4">
+          Bring your imagination to life with our AI-powered image generator. 
+          Simply type what you want to see — and get stunning images created in seconds. 
+          Perfect for creatives, businesses, and marketing teams.
+        </p>
+
+        <!-- List -->
+        <ul class="list-unstyled text-start d-inline-block">
+          <li><i class="bi bi-check-circle-fill text-danger me-2"></i> Generate images from simple text prompts</li>
+          <li><i class="bi bi-check-circle-fill text-danger me-2"></i> High-resolution & realistic results</li>
+          <li><i class="bi bi-check-circle-fill text-danger me-2"></i> Instant preview & download</li>
+        </ul>
+
+        <!-- Future Feature Button -->
+        <div class="mt-4">
+          <button style="background-color: #ea0953; color: white;" class="btn r px-4 py-2 rounded-pill">
+            Try Image Generator 
+          </button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- Section 3 End -->
+
+<!-- Section 4 Start -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <div class="row align-items-center g-5">
+
+      <!-- Left Content -->
+      <div class="col-lg-6 order-lg-1 order-2">
+        <div class="animate-card p-4 bg-white rounded-4 shadow-sm">
+          <h2 class="fw-bold text-dark mb-3">Google Profile Optimization</h2>
+          <p class="text-muted mb-4">
+            Boost your online presence and make your business shine on Google. 
+            Our AI-assisted optimization tool helps you create a strong profile, 
+            reach more customers, and build trust instantly.
+          </p>
+          <ul class="list-unstyled mb-4">
+            <li><i class="bi bi-check-circle-fill text-danger me-2"></i> Improve search visibility</li>
+            <li><i class="bi bi-check-circle-fill text-danger me-2"></i> Optimize images, titles & reviews</li>
+            <li><i class="bi bi-check-circle-fill text-danger me-2"></i> Instant SEO recommendations</li>
+          </ul>
+          <button style="background-color: #ea0953; color: white;" class="btn px-4 py-2 rounded-pill">
+            Optimize My Profile 
+          </button>
+        </div>
+      </div>
 
 
-        <!-- ================= WordPress Themes Section ================= -->
-        <section class="py-5 bg-light mt-5">
-            <div class="themes-layout-container">
-                <!-- Left GIF -->
-                <div class="side-gif">
-                    <img src="img/wordpresspageimage2.jpg" alt="Theme 1 Preview" class="img-fluid">
-                    
-                </div>
-                
-                
-                <!-- Themes Content -->
-                <div class="themes-content">
-                    <div class="container-fluid py-4">
-                        <div class="row g-4">
-                            <!-- Theme 1 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/autohub.jpg" alt="Autohub Rental Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">Autohub Rental Theme</h4>
-                                    <p class="mb-4">Premium car rental theme with vehicle booking system, availability calendar, and payment integration for auto rental businesses.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/autohub-rentals-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+    </div>
+  </div>
+</section>
+<!-- Section 4 End -->
 
-                            <!-- Theme 2 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/rentalcar.jpg" alt="Rental Car Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">Rental Car Theme</h4>
-                                    <p class="mb-4">Complete car rental solution with booking calendar and payment gateway. Ideal for vehicle rental services.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/Rental Car.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+<!-- Section 5 Start: Domain & SSL Checker (UI only, no JS/backend) -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <div class="row justify-content-center">
 
-                            <!-- Theme 3 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/theme3.jpg" alt="Edulearn Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">Edulearn Theme</h4>
-                                    <p class="mb-4">A modern, responsive WordPress theme for car rental businesses. AutoHub Rentals includes booking pages, pricing tables, and a contact form everything to manage your fleet online.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/autohub-rentals-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+      <div class="col-lg-10">
+        <div class="p-4 rounded-4 shadow-sm border-top border-4" style="border-color: #ea0953;">
+          <!-- Header -->
+          <div class="d-flex align-items-center mb-3">
+            <div class="me-3">
+              <div class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle" 
+                   style="width:64px;height:64px;background-color:rgba(234, 9, 83, 0.1);color:#ea0953;">
+                <i class="bi bi-globe2 fs-3"></i>
+              </div>
+            </div>
+            <div>
+              <h3 class="mb-0 fw-bold" style="color:#ea0953;">Domain & SSL Checker</h3>
+              <p class="text-muted mb-0">Quickly inspect a website's domain health, DNS, and SSL certificate information. (UI prototype only)</p>
+            </div>
+          </div>
 
-                            <!-- Theme 4 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/portfolio.jpg" alt="Portfolio Pro Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">Portfolio Pro</h4>
-                                    <p class="mb-4">A stylish and modern portfolio theme designed for freelancers, designers, and developers to showcase their projects beautifully.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/portfolio-pro-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            
-                            <!-- Theme 5 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/autohub.jpg" alt="AutoHub Rentals Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">AutoHub Rentals Theme</h4>
-                                    <p class="mb-4">A powerful and responsive WordPress theme built for car rental businesses, featuring booking forms, vehicle listings, and sleek modern design.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/autohub-rentals-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Theme 6 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/cynaro.jpg" alt="Cyanora WP Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">Cyanora Modern WP Theme</h4>
-                                    <p class="mb-4">A clean, responsive WordPress theme made for creative agencies, freelancers, and portfolio sites. Features multiple header styles, customizable layouts, built-in portfolio templates, and WooCommerce support.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/cyanora-wp-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Theme 7 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/newus.jpg" alt="NewusFlow WP Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">NewusFlow WP Theme</h4>
-                                    <p class="mb-4">A modern and clean WordPress news & magazine theme designed for blogs, online magazines, and publishers. Fully responsive with customizable layouts, multiple post styles, and easy content management.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/newusflow-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Theme 8 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/aetuhirum.jpg" alt="Aetherium Core WP Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">Aetherium Core WP Theme</h4>
-                                    <p class="mb-4">Aetherium Core is a sleek and powerful WordPress theme built for modern businesses and tech startups. It features a minimalist design, fast loading speed, and full Elementor support for easy customization.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/aetherium-core-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Theme 9 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/nexus.jpg" alt="NexusVision WP Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">NexusVision WP Theme</h4>
-                                    <p class="mb-4">NexusVision is a dynamic and visually captivating WordPress theme designed for creative professionals, portfolios, and digital agencies. It offers smooth animations, responsive layouts, and easy drag-and-drop customization.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/nexusvision.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Theme 10 -->
-                            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                                <div class="service-item bg-light h-100 theme-card">
-                                    <img src="img/syntascape.jpg" alt="SynthScape WP Theme" class="img-fluid rounded">
-                                    <h4 class="mb-3">SynthScape WP Theme</h4>
-                                    <p class="mb-4">SynthScape is a futuristic and creative WordPress theme crafted for tech blogs, music platforms, and digital creators. With vibrant layouts, dark and light mode support, and smooth animations.</p>
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <span class="badge bg-primary">Free</span>
-                                        <a href="#" class="btn btn-primary btn-sm download-btn"
-                                            data-file="downloads/synthscape-theme.zip">
-                                            <i class="fa fa-download me-2"></i>Download
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Right GIF -->
-                <div class="side-gif">
-                    <img src="img/wordpresspageimage.jpg" alt="Theme 2 Preview" class="img-fluid">
-                </div>
+          <!-- Input / Example display (no JS) -->
+          <form class="row g-2 align-items-center mb-4">
+            <div class="col-md-8">
+              <label class="form-label small text-muted">Enter Domain or URL</label>
+              <input type="text" class="form-control form-control-lg" placeholder="e.g. example.com or https://example.com" value="example.com" disabled>
+              <div class="form-text">(This is a UI mock — actual checking requires backend/API)</div>
             </div>
 
-           
-        </section>
-         <!-- Installation Instructions -->
-            <div class="row mt-5 wow fadeInUp" data-wow-delay="0.1s">
-                <div class="col-12">
-                    <div class="bg-light p-5 rounded">
-                        <h3 class="mb-4">How to Install WordPress Themes</h3>
-                        <ol class="mb-0">
-                            <li class="mb-2">Download your preferred theme above</li>
-                            <li class="mb-2">Login to your WordPress admin dashboard</li>
-                            <li class="mb-2">Go to Appearance → Themes → Add New</li>
-                            <li class="mb-2">Click "Upload Theme" and choose the downloaded .zip file</li>
-                            <li class="mb-2">Click "Install Now" and then "Activate"</li>
-                            <li>Customize the theme from Appearance → Customize</li>
-                        </ol>
-                    </div>
-                </div>
+            <div class="col-md-4 text-md-end">
+              <label class="form-label small text-muted d-block">&nbsp;</label>
+              <button type="button" class="btn btn-lg rounded-pill" style="background-color:#ea0953;color:white;" disabled>Run Check</button>
+              <div class="form-text small text-muted mt-1">Button disabled in prototype</div>
             </div>
-        <!-- WordPress Themes Section End -->
+          </form>
+
+          <!-- Result Cards -->
+          <div class="row g-3">
+
+            <!-- Domain Status -->
+            <div class="col-md-4">
+              <div class="p-3 bg-light rounded-3 h-100">
+                <div class="d-flex align-items-start">
+                  <div class="me-3">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width:50px;height:50px;background-color:rgba(234, 9, 83, 0.1);color:#ea0953;">
+                      <i class="bi bi-check2-circle fs-4"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="mb-1 fw-bold" style="color:#ea0953;">Domain Status</h5>
+                    <p class="mb-1 text-muted small">Registered & Active</p>
+                    <div class="badge bg-success text-white">Active</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- DNS Records -->
+            <div class="col-md-4">
+              <div class="p-3 bg-light rounded-3 h-100">
+                <div class="d-flex align-items-start">
+                  <div class="me-3">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width:50px;height:50px;background-color:rgba(234, 9, 83, 0.1);color:#ea0953;">
+                      <i class="bi bi-server fs-4"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="mb-1 fw-bold" style="color:#ea0953;">DNS</h5>
+                    <p class="mb-1 text-muted small">A, CNAME, MX detected</p>
+                    <ul class="small mb-0" style="line-height:1.2;">
+                      <li><strong>A:</strong> 93.184.216.34</li>
+                      <li><strong>MX:</strong> mail.example.com</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- SSL Certificate -->
+            <div class="col-md-4">
+              <div class="p-3 bg-light rounded-3 h-100">
+                <div class="d-flex align-items-start">
+                  <div class="me-3">
+                    <div class="rounded-circle d-inline-flex align-items-center justify-content-center" 
+                         style="width:50px;height:50px;background-color:rgba(234, 9, 83, 0.1);color:#ea0953;">
+                      <i class="bi bi-shield-lock-fill fs-4"></i>
+                    </div>
+                  </div>
+                  <div>
+                    <h5 class="mb-1 fw-bold" style="color:#ea0953;">SSL Certificate</h5>
+                    <p class="mb-1 text-muted small">Valid — Expires in 45 days</p>
+                    <div class="small">
+                      <div><strong>Issuer:</strong> Let's Encrypt</div>
+                      <div><strong>Valid From:</strong> 2025-09-28</div>
+                      <div><strong>Expires:</strong> 2026-11-12</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Extended details row -->
+            <div class="col-12">
+              <div class="p-3 bg-white rounded-3 border shadow-sm">
+                <h6 class="fw-bold mb-2" style="color:#ea0953;">Detailed Report (Sample)</h6>
+                <div class="row">
+                  <div class="col-md-4">
+                    <p class="mb-1 small text-muted">HTTP Status</p>
+                    <div class="fw-semibold">200 OK</div>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="mb-1 small text-muted">Redirects</p>
+                    <div class="fw-semibold">No redirects</div>
+                  </div>
+                  <div class="col-md-4">
+                    <p class="mb-1 small text-muted">HSTS</p>
+                    <div class="fw-semibold text-success">Enabled</div>
+                  </div>
+                </div>
+
+                <hr>
+
+                <p class="mb-0 small text-muted">
+                  <strong>Note:</strong> This is a visual prototype of the Domain & SSL checker. To make it functional you will need a backend endpoint or third-party API to query DNS records, perform HTTP/HTTPS requests and fetch SSL certificate metadata. If you want, I can provide a simple API plan or example backend code next.
+                </p>
+              </div>
+            </div>
+
+          </div> <!-- row -->
+        </div> <!-- card -->
+      </div> <!-- col -->
+    </div>
+  </div>
+</section>
+<!-- Section 5 End -->
+
+
+<!-- Section 5: Gamification Start -->
+<section class="py-5 bg-light position-relative overflow-hidden">
+  <div class="container text-center">
+    <!-- Section Heading -->
+    <div class="mb-5 wow fadeInUp" data-wow-delay="0.2s">
+      <h2 class="fw-bold text-dark">Gamification Tools </h2>
+      <p class="text-muted">
+        Turn your platform into an engaging experience by adding rewards, challenges, and badges.
+        Keep your users excited and coming back for more!
+      </p>
+    </div>
+
+    <!-- Feature Cards -->
+    <div class="row g-4 justify-content-center">
+      <!-- Card 1 -->
+      <div class="col-md-4 wow fadeInUp" data-wow-delay="0.3s">
+        <div class="p-4 bg-white shadow rounded-4 h-100 card-animate">
+          <div class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle mb-3" 
+               style="width:80px; height:80px; background-color:rgba(234, 9, 83, 0.1); color:#ea0953;">
+            <i class="bi bi-trophy fs-1"></i>
+          </div>
+          <h5 class="fw-bold" style="color:#ea0953;">Reward System</h5>
+          <p class="text-muted mb-0">Encourage users with points, coins, and rewards for completing tasks and activities.</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4 wow fadeInUp" data-wow-delay="0.4s">
+        <div class="p-4 bg-white shadow rounded-4 h-100 card-animate">
+          <div class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle mb-3" 
+               style="width:80px; height:80px; background-color:rgba(234, 9, 83, 0.1); color:#ea0953;">
+            <i class="bi bi-star-fill fs-1"></i>
+          </div>
+          <h5 class="fw-bold" style="color:#ea0953;">Badges & Levels</h5>
+          <p class="text-muted mb-0">Motivate users by unlocking badges and reaching new levels as they progress.</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4 wow fadeInUp" data-wow-delay="0.5s">
+        <div class="p-4 bg-white shadow rounded-4 h-100 card-animate">
+          <div class="icon-box d-inline-flex align-items-center justify-content-center rounded-circle mb-3" 
+               style="width:80px; height:80px; background-color:rgba(234, 9, 83, 0.1); color:#ea0953;">
+            <i class="bi bi-graph-up-arrow fs-1"></i>
+          </div>
+          <h5 class="fw-bold" style="color:#ea0953;">Progress Tracking</h5>
+          <p class="text-muted mb-0">Keep users engaged with interactive progress bars and achievement tracking.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Button -->
+    <div class="mt-5 wow fadeInUp" data-wow-delay="0.6s">
+      <button class="btn px-4 py-2 rounded-pill" style="background-color:#ea0953; color:white;">
+        Explore Gamification 
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- Section: Task Manager Info -->
+<section class="py-5 bg-light position-relative overflow-hidden">
+  <div class="container text-center wow fadeInUp" data-wow-delay="0.2s">
+    <!-- Icon -->
+    <div class="d-inline-flex justify-content-center align-items-center mb-4 rounded-circle"
+         style="width:80px;height:80px;background-color:rgba(234, 9, 83, 0.1);color:#ea0953;">
+      <i class="bi bi-list-check fs-1"></i>
+    </div>
+
+    <!-- Heading -->
+    <h2 class="fw-bold mb-3" style="color:#ea0953;">Task Manager </h2>
+    <p class="text-muted mx-auto" style="max-width:600px;">
+      Manage all your daily work in one smart dashboard.  
+      Assign, organize, and track your tasks effortlessly  so you can focus on what truly matters.
+    </p>
+
+    <!-- Button -->
+    <button class="btn px-4 py-2 rounded-pill mt-3" style="background-color:#ea0953; color:#fff;">
+      Explore Task Manager
+    </button>
+  </div>
+</section>
+<!-- Section: Pulse Rate Simple -->
+<section class="py-5 bg-white">
+  <div class="container">
+    <!-- Header -->
+    <div class="text-center mb-4">
+      
+      <h2 class="fw-bold" style="color:#ea0953;">Pulse Rate Information</h2>
+      <p class="text-muted small mb-0">
+        A simple overview to help you understand what your pulse rate says about your health.
+      </p>
+    </div>
+
+    <!-- Main Cards -->
+    <div class="row justify-content-center g-4 mt-4">
+
+      <!-- Box 1 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="p-3 rounded-4 border text-center h-100">
+          <h6 class="fw-bold mb-2" style="color:#ea0953;">What is Pulse?</h6>
+          <p class="small text-muted mb-0">
+            Pulse rate is the number of heartbeats per minute. It reflects how well your heart is working.
+          </p>
+        </div>
+      </div>
+
+      <!-- Box 2 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="p-3 rounded-4 border text-center h-100">
+          <h6 class="fw-bold mb-2" style="color:#ea0953;">Normal Range</h6>
+          <p class="small text-muted mb-1">Adults: <strong>60–100 bpm</strong></p>
+          <p class="small text-muted mb-0">Athletes: <strong>40–60 bpm</strong></p>
+        </div>
+      </div>
+
+      <!-- Box 3 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="p-3 rounded-4 border text-center h-100">
+          <h6 class="fw-bold mb-2" style="color:#ea0953;">Warning Signs</h6>
+          <p class="small text-muted mb-0">
+            Very high or low pulse can indicate a medical issue. Consult a doctor if irregular.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA Button -->
+    <div class="text-center mt-5">
+      <button class="btn btn-lg px-5 rounded-pill"
+              style="background-color:#ea0953; color:#fff;"
+              id="learnMoreBtn">
+        Learn More
+      </button>
+    </div>
+
+    <!-- Hidden Extra Cards -->
+    <div class="row justify-content-center g-4 mt-4 d-none" id="extraCards">
+
+      <!-- Extra Card 1 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="p-3 rounded-4 border text-center h-100">
+          <h6 class="fw-bold mb-2" style="color:#ea0953;">How to Measure</h6>
+          <p class="small text-muted mb-0">
+            Place two fingers on your wrist or neck, count beats for 60 seconds, and note the rate.
+          </p>
+        </div>
+      </div>
+
+      <!-- Extra Card 2 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="p-3 rounded-4 border text-center h-100">
+          <h6 class="fw-bold mb-2" style="color:#ea0953;">Factors Affecting Pulse</h6>
+          <p class="small text-muted mb-0">
+            Exercise, stress, sleep, and hydration can all impact your pulse rate.
+          </p>
+        </div>
+      </div>
+
+      <!-- Extra Card 3 -->
+      <div class="col-md-3 col-sm-6">
+        <div class="p-3 rounded-4 border text-center h-100">
+          <h6 class="fw-bold mb-2" style="color:#ea0953;">Healthy Tips</h6>
+          <p class="small text-muted mb-0">
+            Regular exercise, good sleep, and hydration can help keep your pulse in a healthy range.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
 
         <!-- Footer Start -->
         <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
@@ -646,6 +898,16 @@
         <script src="lib/owlcarousel/owl.carousel.min.js"></script>
         <script src="lib/counterup/counterup.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- JS to Toggle Extra Cards -->
+<script>
+  const learnMoreBtn = document.getElementById('learnMoreBtn');
+  const extraCards = document.getElementById('extraCards');
+
+  learnMoreBtn.addEventListener('click', () => {
+    extraCards.classList.toggle('d-none');
+    learnMoreBtn.textContent = extraCards.classList.contains('d-none') ? 'Learn More' : 'Show Less';
+  });
+</script>
 
         <script>
             document.addEventListener("DOMContentLoaded", function() {
