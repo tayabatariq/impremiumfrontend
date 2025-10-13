@@ -14,6 +14,252 @@
     bottom: 30px;
     z-index: 99;
 }
+.ai-section {
+  background-color: #fff;
+  padding: 60px 10%;
+  font-family: 'Poppins', sans-serif;
+}
+
+
+.ai-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.ai-image {
+  width: 50%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.ai-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.ai-content {
+  flex: 1;
+  color: #555555;
+  padding: 20px 40px;
+}
+
+.ai-content h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #011A41;
+  margin-bottom: 25px;
+}
+
+.tour-content {
+  border-left: 4px solid #ea0953;
+  border-radius: 12px;
+  padding: 25px;
+  background-color: #fafafa;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.tour-content h3 {
+  color: #ea0953;
+  margin-bottom: 15px;
+}
+
+.tour-content p {
+  color: #555555;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.tour-content ul {
+  color: #555555;
+  margin-bottom: 25px;
+}
+
+.btn-try  {
+  background-color: #ea0953;
+  color: #fff;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.btn-try a{
+    color: #fff;
+    text-decoration: none;
+}
+
+.btn-try:hover {
+  background-color: #d4084c;
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ai-container {
+    flex-direction: column;
+    text-align: center;
+  }
+.ai-image {
+  display: none;
+}
+
+  .ai-section {
+  background-color: #fff;
+  padding: 10px 5%;
+  margin-bottom: 2rem;
+  font-family: 'Poppins', sans-serif;
+}
+  .ai-image {
+    margin-bottom: 30px;
+  }
+
+  .ai-content {
+    padding: 20px;
+  }
+
+  .tour-content {
+    text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  section.py-5 {
+    padding-top: 0 !important;
+    margin-top: 0 !important;
+  }
+  section.py-5 .container {
+    margin-top: 0 !important;
+  }
+}
+
+.nav-pills .nav-link {
+  border-radius: 50px;
+  color: #555;
+  background-color: #f8f9fa;
+  transition: all 0.3s ease;
+}
+
+.nav-pills .nav-link.active {
+  background-color: #ea0953;
+  color: #fff;
+  box-shadow: 0 4px 10px rgba(234, 9, 83, 0.3);
+}
+
+.nav-pills .nav-link:hover {
+  background-color: #ea0953;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .nav-pills {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .col-lg-6 img {
+    max-height: 300px;
+    margin-top: 20px;
+  }
+}
+/* Hover glow and floating animation */
+.hover-glow {
+  transition: all 0.3s ease-in-out;
+}
+
+.hover-glow:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(234, 9, 83, 0.2);
+}
+
+/* Floating image animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+  100% { transform: translateY(0); }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
+  .hover-glow {
+    text-align: center;
+  }
+}
+
+.ai-optimization-section {
+  background-image: url('../aiimageeinfo2.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  position: relative;
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+.ai-optimization-section .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(63, 19, 31, 0.55); /* pink transparent overlay */
+  z-index: 1;
+}
+
+.ai-optimization-section .container {
+  z-index: 2;
+}
+
+.ai-optimization-section p, 
+.ai-optimization-section ul {
+  color: #fff;
+}
+
+.ai-optimization-section ul li {
+  margin-bottom: 8px;
+  font-size: 1.1rem;
+}
+
+.try-btn {
+  background-color: #fff;
+  color: #ea0953;
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 10px 28px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.try-btn:hover {
+  background-color: #ea0953;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ai-optimization-section {
+    background-attachment: scroll;
+    padding: 60px 20px;
+  }
+
+  .ai-optimization-section h2 {
+    font-size: 1.8rem;
+  }
+
+  .ai-optimization-section p {
+    font-size: 1rem;
+  }
+}
 
 h1,
 .h1,
