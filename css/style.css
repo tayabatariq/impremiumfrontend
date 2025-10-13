@@ -95,6 +95,15 @@
   background-color: #d4084c;
   transform: translateY(-2px);
 }
+.project-img img {
+    height: 300px;           /* 👈 yahan ap apni marzi ka height set kar sakte ho */
+    width: 100%;
+    object-fit: cover;       /* image ko crop karke fit karega */
+}
+
+.project-item {
+    min-height: 400px;       /* 👈 card ki minimum height barha di */
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

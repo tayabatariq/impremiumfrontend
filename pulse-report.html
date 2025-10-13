@@ -135,10 +135,8 @@
     }
 
     .coin-icon {
-      width: 35px;
-      height: 35px;
-      background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
-      border-radius: 50%;
+      width: 60px;
+      height: 60px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -182,6 +180,11 @@
       resize: vertical;
       min-height: 50px;
     }
+.coin-icon img {
+  width: 100%;     /* 👈 apni marzi ka size */
+  height: 100%;    /* 👈 height set karein */
+  object-fit: contain;
+}
 
     .generate-btn {
       width: 100%;
@@ -229,16 +232,18 @@
           </div>
         </div>
       </div>
+<div class="points-section">
+  <div class="points-row">
+    <div class="coin-icon">
+      <img src="pulserate.png" alt="coin" />
+    </div>
+    <div>
+      <div>Points</div>
+      <div class="points-value">482</div>
+    </div>
+  </div>
+</div>
 
-      <div class="points-section">
-        <div class="points-row">
-          <div class="coin-icon">$</div>
-          <div>
-            <div>Points</div>
-            <div class="points-value">482</div>
-          </div>
-        </div>
-      </div>
 
       <div class="pulse-form">
         <div class="pulse-field">
