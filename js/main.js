@@ -113,3 +113,14 @@
     
 })(jQuery);
 
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: "en",
+      includedLanguages: "es,fr,it,de,en,pt,ru,ar,zh-CN,hi,ja",
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+      autoDisplay: false
+    },
+    "google_translate_element"
+  );
+}

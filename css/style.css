@@ -101,9 +101,56 @@
     object-fit: cover;       /* image ko crop karke fit karega */
 }
 
+
 .project-item {
     min-height: 400px;       /* 👈 card ki minimum height barha di */
 }
+        /* Force the Google Translate container to display inline */
+        #google_translate_element {
+            display: inline-block !important;
+        }
+
+        /* Hide the default Google branding and text */
+        .goog-te-gadget {
+            color: transparent !important;
+            font-size: 0 !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            color: #000 !important;
+            /* Color for the dropdown text */
+        }
+
+        .goog-logo-link,
+        .goog-te-gadget span {
+            display: none !important;
+        }
+
+        /* Style the select element to look like your Bootstrap button */
+        #google_translate_element .goog-te-combo {
+            background-color: #0d6efd !important;
+            /* Bootstrap primary color */
+            border: none !important;
+            border-radius: 50rem !important;
+            /* Makes it a pill shape */
+            color: white !important;
+            font-size: .875rem !important;
+            /* Matches btn-sm */
+            padding: 0.375rem 0.75rem !important;
+            /* Matches btn-sm padding */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+        }
+
+        /* Hide the Google top banner */
+        .goog-te-banner-frame {
+            display: none !important;
+        }
+
+        body {
+            top: 0px !important;
+        }
 
 /* Responsive Design */
 @media (max-width: 768px) {
