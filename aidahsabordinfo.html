@@ -324,7 +324,717 @@
     }
   </style>
 
+<style>
+  /* Base Styles */
+  .ai-section {
+    padding: 40px 0;
+  }
+  
+  .ai-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+  
+  .ai-image img {
+    width: 100%;
+    border-radius: 10px;
+    display: block;
+  }
+  
+  .ai-content h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #333;
+  }
+  
+  .tour-popup {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 30px;
+  }
+  
+  .tour-icon {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .tour-icon i {
+    font-size: 3rem;
+    color: #f54d7c;
+  }
+  
+  .tour-step-title {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #444;
+  }
+  
+  .tour-popup p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #666;
+  }
+  
+  .feature-list {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 25px;
+    line-height: 1.8;
+  }
+  
+  .feature-list li {
+    padding: 8px 0;
+    display: flex;
+    align-items: center;
+  }
+  
+  .feature-list li::before {
+    content: "✓";
+    color: #f54d7c;
+    margin-right: 10px;
+    font-weight: bold;
+  }
+  
+  .action-button {
+    text-align: center;
+  }
+  
+  .btn-try {
+    background: #f54d7c;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    max-width: 250px;
+    width: 100%;
+  }
+  
+  .btn-try a {
+    color: white;
+    text-decoration: none;
+    display: block;
+  }
 
+  /* Desktop Layout - Equal Heights */
+  @media (min-width: 769px) {
+    .ai-layout {
+      display: flex;
+      align-items: stretch;
+      gap: 50px;
+    }
+    
+    .ai-image {
+      flex: 0 0 45%;
+      display: flex;
+    }
+    
+    .ai-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 500px;
+    }
+    
+    .ai-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .tour-popup {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    
+    .ai-content h2 {
+      text-align: left;
+    }
+    
+    .tour-step-title {
+      text-align: left;
+    }
+    
+    .tour-popup p {
+      text-align: left;
+    }
+    
+    .btn-try {
+      width: auto;
+      margin: 0 auto;
+    }
+    
+    .tour-icon {
+      text-align: left;
+    }
+  }
+
+  /* Mobile Layout */
+  @media (max-width: 768px) {
+    .ai-layout {
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+    }
+    
+    .ai-image {
+      width: 100%;
+    }
+    
+    .ai-image img {
+      height: auto;
+      min-height: auto;
+      object-fit: contain;
+    }
+    
+    .ai-content {
+      width: 100%;
+    }
+    
+    .tour-popup {
+      height: auto;
+    }
+    
+    .ai-section {
+      padding: 20px 0;
+    }
+    
+    .ai-container {
+      padding: 0 15px;
+    }
+    
+    .ai-content h2 {
+      font-size: 1.6rem;
+      text-align: center;
+    }
+    
+    .tour-step-title {
+      font-size: 1.3rem;
+      text-align: center;
+    }
+    
+    .tour-popup p {
+      font-size: 0.95rem;
+      text-align: center;
+    }
+    
+    .feature-list li {
+      font-size: 0.9rem;
+      justify-content: center;
+    }
+    
+    .btn-try {
+      padding: 12px 25px;
+      font-size: 1rem;
+    }
+    
+    .tour-icon {
+      text-align: center;
+    }
+  }
+
+  /* Very Small Screens */
+  @media (max-width: 480px) {
+    .ai-container {
+      padding: 0 10px;
+    }
+    
+    .tour-popup {
+      padding: 20px 15px;
+    }
+    
+    .ai-content h2 {
+      font-size: 1.4rem;
+    }
+    
+    .tour-step-title {
+      font-size: 1.2rem;
+    }
+    
+    .tour-icon i {
+      font-size: 2.5rem;
+    }
+    
+    .feature-list li {
+      font-size: 0.85rem;
+      padding: 6px 0;
+    }
+  }
+</style>
+<style>
+  /* Mobile Responsive Styles */
+  @media (max-width: 768px) {
+    .py-5.mt-5.bg-white {
+      padding: 2rem 0 !important;
+    }
+    
+    .container.mt-5 {
+      margin-top: 2rem !important;
+    }
+    
+    .col-12.col-md-10.col-lg-8 {
+      padding: 0 15px;
+    }
+    
+    h2.fw-bold.text-dark {
+      font-size: 1.6rem !important;
+      text-align: center !important;
+      margin-bottom: 1rem !important;
+    }
+    
+    p.text-muted {
+      font-size: 0.95rem !important;
+      text-align: center !important;
+      line-height: 1.5 !important;
+      margin-bottom: 1.5rem !important;
+      padding: 0 10px;
+    }
+    
+    .list-unstyled {
+      text-align: center;
+    }
+    
+    .list-unstyled li {
+      font-size: 0.9rem !important;
+      padding: 8px 0 !important;
+      justify-content: center !important;
+    }
+    
+    .list-unstyled li i {
+      font-size: 1.1rem !important;
+    }
+  }
+
+  /* Very Small Screens */
+  @media (max-width: 480px) {
+    .py-5.mt-5.bg-white {
+      padding: 1.5rem 0 !important;
+    }
+    
+    .container.mt-5 {
+      margin-top: 1.5rem !important;
+    }
+    
+    h2.fw-bold.text-dark {
+      font-size: 1.4rem !important;
+    }
+    
+    p.text-muted {
+      font-size: 0.9rem !important;
+      padding: 0 5px;
+    }
+    
+    .list-unstyled li {
+      font-size: 0.85rem !important;
+      padding: 6px 0 !important;
+    }
+    
+    .list-unstyled li i {
+      font-size: 1rem !important;
+    }
+  }
+
+  /* Tablet Screens */
+  @media (min-width: 769px) and (max-width: 992px) {
+    .col-12.col-md-10.col-lg-8 {
+      max-width: 90% !important;
+    }
+  }
+
+  /* Desktop Styles - Keep original alignment */
+  @media (min-width: 769px) {
+    h2.fw-bold.text-dark {
+      text-align: left !important;
+    }
+    
+    p.text-muted {
+      text-align: left !important;
+    }
+    
+    .list-unstyled li {
+      justify-content: flex-start !important;
+    }
+  }
+</style>
+<style>
+/* ================= COMPREHENSIVE MOBILE RESPONSIVENESS ================= */
+
+/* Global Mobile Styles */
+@media (max-width: 768px) {
+  /* Fix container padding */
+  .container, .container-fluid {
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  
+  /* Page Header */
+  .page-header h1.display-3 {
+    font-size: 2rem !important;
+  }
+  
+  .breadcrumb {
+    font-size: 0.9rem;
+  }
+  
+  /* AI Section - Ensure proper stacking */
+  .ai-layout {
+    flex-direction: column !important;
+    gap: 25px !important;
+  }
+  
+  .ai-image {
+    width: 100% !important;
+    flex: none !important;
+  }
+  
+  .ai-image img {
+    height: auto !important;
+    min-height: auto !important;
+    object-fit: contain !important;
+  }
+  
+  .ai-content {
+    width: 100% !important;
+    flex: none !important;
+  }
+  
+  .ai-content h2 {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
+  
+  .tour-step-title {
+    font-size: 1.3rem !important;
+    text-align: center !important;
+  }
+  
+  .tour-popup p {
+    text-align: center !important;
+    font-size: 0.95rem !important;
+  }
+  
+  .feature-list li {
+    justify-content: center !important;
+    font-size: 0.9rem !important;
+  }
+  
+  .btn-try {
+    width: 100% !important;
+    max-width: 280px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* Dashboard Overview Section */
+  .py-5.mt-5.bg-white {
+    padding: 2rem 0 !important;
+  }
+  
+  .container.mt-5 {
+    margin-top: 2rem !important;
+  }
+  
+  .col-12.col-md-10.col-lg-8 {
+    padding: 0 10px !important;
+  }
+  
+  h2.fw-bold.text-dark {
+    font-size: 1.6rem !important;
+    text-align: center !important;
+  }
+  
+  p.text-muted {
+    font-size: 0.95rem !important;
+    text-align: center !important;
+    padding: 0 10px !important;
+  }
+  
+  .list-unstyled li {
+    justify-content: center !important;
+    font-size: 0.9rem !important;
+    text-align: center !important;
+  }
+  
+  /* Features Section */
+  .container-xxl.feature.py-5 {
+    padding: 2rem 0 !important;
+  }
+  
+  .display-5 {
+    font-size: 1.8rem !important;
+  }
+  
+  .feature-box {
+    margin-bottom: 15px !important;
+    padding: 20px !important;
+  }
+  
+  .feature-box h4 {
+    font-size: 1.1rem !important;
+  }
+  
+  .feature-box p {
+    font-size: 0.9rem !important;
+  }
+  
+  .d-flex.flex-column.flex-md-row {
+    flex-direction: column !important;
+    gap: 10px !important;
+  }
+  
+  .btn-primary.btn-sm {
+    width: 100% !important;
+    max-width: 250px !important;
+    margin: 0 auto !important;
+  }
+  
+  /* AI Image Generator Section */
+  .py-5.bg-white .container.text-center {
+    padding: 0 15px !important;
+  }
+  
+  .col-lg-8 {
+    padding: 0 10px !important;
+  }
+  
+  .list-unstyled.text-start.d-inline-block {
+    text-align: center !important;
+    display: block !important;
+  }
+  
+  .list-unstyled.text-start.d-inline-block li {
+    justify-content: center !important;
+    text-align: center !important;
+  }
+  
+  /* AI Google Optimization Section */
+  .ai-optimization-section h2 {
+    font-size: 1.5rem !important;
+  }
+  
+  .ai-optimization-section p {
+    font-size: 1rem !important;
+    padding: 0 15px !important;
+  }
+  
+  /* Google Profile Optimization */
+  .order-lg-1, .order-lg-2 {
+    order: 2 !important;
+  }
+  
+  .order-lg-2 {
+    order: 1 !important;
+    margin-bottom: 20px !important;
+  }
+  
+  .col-lg-6.text-center {
+    margin-bottom: 25px !important;
+  }
+  
+  /* Domain & SSL Checker */
+  .col-lg-10 {
+    padding: 0 10px !important;
+  }
+  
+  .p-4.rounded-4 {
+    padding: 20px 15px !important;
+  }
+  
+  .row.g-3 .col-md-4 {
+    margin-bottom: 15px !important;
+  }
+  
+  /* Gamification Tools */
+  .col-lg-6 {
+    margin-bottom: 25px !important;
+  }
+  
+  /* Health Insights Tabs */
+  .nav-pills {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+  }
+  
+  .nav-pills .nav-item {
+    margin-bottom: 8px !important;
+    margin-right: 5px !important;
+  }
+  
+  .nav-pills .nav-link {
+    font-size: 0.9rem !important;
+    padding: 8px 12px !important;
+  }
+  
+  /* Footer adjustments */
+  .col-lg-3, .col-md-6 {
+    margin-bottom: 25px !important;
+    text-align: center !important;
+  }
+  
+  .d-flex.pt-2 {
+    justify-content: center !important;
+  }
+}
+
+/* Very Small Screens (Phones) */
+@media (max-width: 480px) {
+  /* AI Section */
+  .ai-container {
+    padding: 0 10px !important;
+  }
+  
+  .tour-popup {
+    padding: 20px 15px !important;
+  }
+  
+  .ai-content h2 {
+    font-size: 1.4rem !important;
+  }
+  
+  .tour-step-title {
+    font-size: 1.2rem !important;
+  }
+  
+  .tour-icon i {
+    font-size: 2.5rem !important;
+  }
+  
+  .feature-list li {
+    font-size: 0.85rem !important;
+    padding: 6px 0 !important;
+  }
+  
+  /* Dashboard Overview */
+  .py-5.mt-5.bg-white {
+    padding: 1.5rem 0 !important;
+  }
+  
+  .container.mt-5 {
+    margin-top: 1.5rem !important;
+  }
+  
+  h2.fw-bold.text-dark {
+    font-size: 1.4rem !important;
+  }
+  
+  p.text-muted {
+    font-size: 0.9rem !important;
+    padding: 0 5px !important;
+  }
+  
+  .list-unstyled li {
+    font-size: 0.85rem !important;
+    padding: 6px 0 !important;
+  }
+  
+  /* Features */
+  .display-5 {
+    font-size: 1.6rem !important;
+  }
+  
+  .feature-box {
+    padding: 15px !important;
+  }
+  
+  /* Health Insights */
+  .nav-pills .nav-link {
+    font-size: 0.8rem !important;
+    padding: 6px 10px !important;
+  }
+  
+  .btn-lg.px-5 {
+    padding: 12px 25px !important;
+    font-size: 1rem !important;
+  }
+}
+
+/* Tablet Optimizations */
+@media (min-width: 769px) and (max-width: 992px) {
+  .col-12.col-md-10.col-lg-8 {
+    max-width: 95% !important;
+  }
+  
+  .ai-image {
+    flex: 0 0 40% !important;
+  }
+  
+  .ai-content {
+    flex: 1 !important;
+  }
+}
+
+/* Ensure Desktop Layout is Preserved */
+@media (min-width: 769px) {
+  .ai-layout {
+    display: flex !important;
+    align-items: stretch !important;
+    gap: 50px !important;
+  }
+  
+  .ai-image {
+    flex: 0 0 45% !important;
+    display: flex !important;
+  }
+  
+  .ai-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    min-height: 500px !important;
+  }
+  
+  .ai-content {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+  
+  .tour-popup {
+    height: 100% !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+  }
+  
+  .ai-content h2 {
+    text-align: left !important;
+  }
+  
+  .tour-step-title {
+    text-align: left !important;
+  }
+  
+  .tour-popup p {
+    text-align: left !important;
+  }
+  
+  .btn-try {
+    width: auto !important;
+    margin: 0 auto !important;
+  }
+  
+  .tour-icon {
+    text-align: left !important;
+  }
+  
+  /* Dashboard Overview Desktop */
+  h2.fw-bold.text-dark {
+    text-align: left !important;
+  }
+  
+  p.text-muted {
+    text-align: left !important;
+  }
+  
+  .list-unstyled li {
+    justify-content: flex-start !important;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -353,7 +1063,7 @@
     <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
       <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
         <h1 class="display-5 text-primary m-0">I M P E R I U M</h1>
-        <small>M E D I A - G R O U P</small>
+        <small>M E D I A  -  E N T E R P R I S E S</small>
       </a>
       <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
         <span class="navbar-toggler-icon"></span>
@@ -429,74 +1139,84 @@
 
 
   
-  <section class="ai-section">
-    <div class="ai-container">
-      <!-- Left Side Image -->
+<section class="ai-section" style="padding: 40px 0;">
+  <div class="ai-container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div class="ai-layout">
+      
+      <!-- Image Section -->
       <div class="ai-image">
         <img src="aiimageinfo.jpg" alt="AI Tool Image">
       </div>
 
-      <!-- Right Side Content -->
+      <!-- Content Section -->
       <div class="ai-content">
         <h2>Why Choose Our AI Tool?</h2>
+        
         <div class="tour-popup">
           <div class="tour-content">
-            <div class="tour-icon mb-3">
-              <i class="bi bi-lightbulb-fill" style="font-size:3rem; color:#f54d7c;"></i>
+            <div class="tour-icon">
+              <i class="bi bi-lightbulb-fill"></i>
             </div>
 
             <h3 class="tour-step-title">Revolutionize Your Workflow</h3>
+            
             <p>
               Experience the next generation of productivity with our advanced AI tool.
               Designed to automate repetitive tasks, analyze data intelligently, and deliver insights
               that help your business grow faster and smarter.
             </p>
 
-            <ul class="list-unstyled text-start px-3">
-              <li> Automated process optimization</li>
-              <li> Real-time analytics and smart reporting</li>
-              <li> Human-like interaction with users</li>
-              <li> Secure and scalable infrastructure</li>
-              <li> 24/7 cloud-based accessibility</li>
+            <ul class="feature-list">
+              <li>Automated process optimization</li>
+              <li>Real-time analytics and smart reporting</li>
+              <li>Human-like interaction with users</li>
+              <li>Secure and scalable infrastructure</li>
+              <li>24/7 cloud-based accessibility</li>
             </ul>
 
-            <div class="action-button mt-4">
-              <button class="btn-try"><a href="aitooldashboard.html"> Try Our AI Tool</a></button>
+            <div class="action-button">
+              <button class="btn-try">
+                <a href="aitooldashboard.html">Try Our AI Tool</a>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
   
-  <!-- Section Start -->
-  <section class="py-5 mt-5 bg-white">
-    <div class="container mt-5">
-      <div class="row align-items-center g-4">
-
-
-
-        <!-- Content Column -->
-        <div class="col-md-10">
-          <h2 class="fw-bold text-dark mb-2">Dashboard Overview</h2>
-          <p class="text-muted mb-3">
-            Get a real-time overview of your business performance. Monitor growth, track activity,
-            and manage everything from one simple, clean interface.
-          </p>
-          <ul class="list-unstyled mb-0">
-            <li><i class="bi bi-check-circle-fill  me-2" style="color: #ea0953;"></i> Real-time performance tracking
-            </li>
-            <li><i class="bi bi-check-circle-fill  me-2" style="color: #ea0953;"></i> Customizable widgets & reports
-            </li>
-            <li><i class="bi bi-check-circle-fill  me-2" style="color: #ea0953;"></i> Alerts & notifications center</li>
-          </ul>
-        </div>
-
+<!-- Section Start -->
+<section class="py-5 mt-5 bg-white">
+  <div class="container mt-5">
+    <div class="row align-items-center g-4 justify-content-center">
+      <div class="col-12 col-md-10 col-lg-8">
+        <h2 class="fw-bold text-dark mb-3 text-center text-md-start">Dashboard Overview</h2>
+        <p class="text-muted mb-4 text-center text-md-start">
+          Get a real-time overview of your business performance. Monitor growth, track activity,
+          and manage everything from one simple, clean interface.
+        </p>
+        <ul class="list-unstyled mb-0">
+          <li class="mb-2 d-flex align-items-center justify-content-center justify-content-md-start">
+            <i class="bi bi-check-circle-fill me-2 flex-shrink-0" style="color: #ea0953;"></i> 
+            <span>Real-time performance tracking</span>
+          </li>
+          <li class="mb-2 d-flex align-items-center justify-content-center justify-content-md-start">
+            <i class="bi bi-check-circle-fill me-2 flex-shrink-0" style="color: #ea0953;"></i> 
+            <span>Customizable widgets & reports</span>
+          </li>
+          <li class="mb-2 d-flex align-items-center justify-content-center justify-content-md-start">
+            <i class="bi bi-check-circle-fill me-2 flex-shrink-0" style="color: #ea0953;"></i> 
+            <span>Alerts & notifications center</span>
+          </li>
+        </ul>
       </div>
     </div>
-  </section>
-  <!-- Section End -->
+  </div>
+</section>
+<!-- Section End -->
+
    
 
   
@@ -1027,7 +1747,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-          &copy; <a class="border-bottom" href="#">Imperium Media </a>, All Right Reserved.
+          &copy; <a class="border-bottom" href="#">Imperium Media Enterprises </a>, All Right Reserved.
         </div>
       </div>
     </div>

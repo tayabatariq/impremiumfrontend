@@ -14,7 +14,6 @@
 
     <!-- Favicon -->
 
-
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -38,9 +37,238 @@
     <!-- Template Stylesheet -->
     <link href="css/style.css" rel="stylesheet">
     <style>
-        .shopdiy{
-            margin-top: 10rem !important;
-            margin-left: 2rem ;
+        .container-fluid.py-5 {
+            padding-left: 30px !important;
+            padding-right: 30px !important;
+        }
+
+        @media (max-width: 768px) {
+            .container-fluid.py-5 {
+                padding-left: 15px !important;
+                padding-right: 15px !important;
+            }
+        }
+
+        .theme-card {
+            transition: transform 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .theme-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Add more left-right space */
+        .container {
+            max-width: 100% !important;
+            padding-left: 40px !important;
+            padding-right: 40px !important;
+        }
+
+        .row.g-4 {
+            margin-left: -8px !important;
+            margin-right: -8px !important;
+        }
+
+        .col-lg-3 {
+            padding-left: 8px !important;
+            padding-right: 8px !important;
+        }
+
+        .hero-section {
+            position: relative;
+            background: url('websitesimaee.jpg') center center/cover no-repeat;
+            width: 100%;
+            padding: 100px 20px;
+        }
+
+        .hero-section .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: 1;
+        }
+
+        .hero-section .content {
+            position: relative;
+            z-index: 2;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 70px 15px;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .container {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+
+            .container-fluid {
+                padding-left: 20px !important;
+                padding-right: 20px !important;
+            }
+        }
+
+        .cont1 {
+            padding-left: 0px !important;
+            padding-right: 0px !important;
+            padding-top: 10rem !important;
+        }
+
+        /* New styles for equal card heights */
+        .service-item {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            /* padding: 1.5rem !important; */
+        }
+
+        .service-item p {
+            flex-grow: 1;
+            margin-bottom: 1.5rem !important;
+            font-size: 0.875rem;
+            /* Reduced from default 1rem to 0.875rem (14px) */
+            line-height: 1.5;
+            color: #6c757d;
+        }
+
+        .service-item img {
+            height: 200px;
+            object-fit: cover;
+            width: 100%;
+            margin-bottom: 1rem !important;
+        }
+
+        /* New styles for side GIFs and layout */
+        .themes-layout-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+            margin-top: 30px;
+            padding: 0 20px;
+        }
+
+        .side-gif {
+            flex: 0 0 220px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .side-gif img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .themes-content {
+            flex: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .side-gif {
+                flex: 0 0 180px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .themes-layout-container {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .side-gif {
+                flex: 0 0 auto;
+                margin-bottom: 20px;
+            }
+
+            .side-gif img {
+                max-width: 80%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .themes-layout-container {
+                padding: 0 10px;
+            }
+
+            .service-item {
+                padding: 1.25rem !important;
+            }
+
+            .service-item img {
+                height: 180px;
+            }
+
+            .service-item p {
+                font-size: 0.85rem;
+                /* Slightly smaller on mobile */
+            }
+        }
+
+        /* Adjust card spacing and size */
+        .themes-content .row.g-4 {
+            margin-left: -6px !important;
+            margin-right: -6px !important;
+        }
+
+        .themes-content .col-lg-3 {
+            padding-left: 6px !important;
+            padding-right: 6px !important;
+            margin-bottom: 12px;
+        }
+
+        /* Increase card size */
+        .service-item {
+            min-height: 420px;
+        }
+
+        .service-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem !important;
+        }
+
+        .side-gif .card {
+            max-width: 250px;
+            margin: 0 auto;
+            border-radius: 10px;
+        }
+
+        .side-gif .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .side-gif .card-text {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        @media (max-width: 768px) {
+            .container-fluid.fixed-top {
+                top: 0 !important;
+                margin-top: 0;
+                padding-top: 0;
+            }
+
+            .img-fluid {
+                margin-top: 2rem;
+            }
         }
     </style>
 </head>
@@ -53,9 +281,6 @@
     </div>
     <!-- Spinner End -->
 
-
-
-
     <!-- Navbar Start -->
     <div class="container-fluid fixed-top px-0 wow fadeIn" data-wow-delay="0.1s">
         <div class="top-bar row gx-0 align-items-center d-none d-lg-flex">
@@ -65,14 +290,15 @@
                 <small class="ms-4"><i class="fa fa-clock text-primary me-2"></i>9.00 am - 9.00 pm</small>
             </div>
             <div class="col-lg-6 px-5 text-end">
-          <small><i class="fa fa-envelope text-primary me-2"></i>info@imperiummedia.co.uk</small>
-                <div id="google_translate_element" class="btn btn-primary"></div>            </div>
+                <small><i class="fa fa-envelope text-primary me-2"></i>info@imperiummedia.co.uk</small>
+                <div id="google_translate_element" class="btn btn-primary"></div>
+            </div>
         </div>
 
         <nav class="navbar navbar-expand-lg navbar-light py-lg-0 px-lg-5 wow fadeIn" data-wow-delay="0.1s">
             <a href="index.html" class="navbar-brand ms-4 ms-lg-0">
                 <h1 class="display-5 text-primary m-0">I M P E R I U M</h1>
-                <small>M E D I A - G R O U P</small>
+                <small>M E D I A - E N T E R P R I S E S</small>
             </a>
             <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse"
                 data-bs-target="#navbarCollapse">
@@ -91,174 +317,312 @@
                             <a href="itsupportservice.html" class="dropdown-item">IT Support</a>
                             <a href="multilingualmarketing.html" class="dropdown-item">Multilingual Marketing</a>
                             <a href="googlemybusiness.html" class="dropdown-item">Google My Business </a>
-
                         </div>
                     </div>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Companies</a>
                         <div class="dropdown-menu border-light m-0">
                             <a href="https://www.ahaccountant.co.uk" class="dropdown-item">AH Accountants</a>
-                                                      <a href="aidahsabordinfo.html" class="dropdown-item">AI Dashboard</a>
+                            <a href="aidahsabordinfo.html" class="dropdown-item">AI Dashboard</a>
 
                         </div>
                     </div>
-                    
+
                     <div class="nav-item dropdown">
                         <a href="coursepage.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Courses</a>
                         <div class="dropdown-menu border-light m-0">
-                            <!-- <a href="https://imperiummedia.co.uk/saiyanproductions" class="dropdown-item">Shopify  Trainings</a> -->
                             <a href="coursepage.html" class="dropdown-item">Shopify Training</a>
-
                         </div>
                     </div>
-      <a href="contact.html" class="nav-item nav-link">Contact</a>
-                     <div class="nav-item dropdown">
-                        <a href="coursepage.html" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Templates</a>
+                    <a href="contact.html" class="nav-item nav-link">Contact</a>
+                    <div class="nav-item dropdown">
+                        <a href="coursepage.html" class="nav-link dropdown-toggle"
+                            data-bs-toggle="dropdown">Templates</a>
                         <div class="dropdown-menu border-light m-0">
-                            <!-- <a href="https://imperiummedia.co.uk/saiyanproductions" class="dropdown-item">Shopify  Trainings</a> -->
                             <a href="wordprestheme.html" class="dropdown-item">WordPress Themes</a>
-
                             <a href="shopifytheme.html" class="dropdown-item">Shopify Themes</a>
-
                         </div>
-                    </div>                </div>
-               <div class="dropdown ms-2 custom-margin">
-  <button class="btn btn-primary btn-sm px-3 rounded-pill dropdown-toggle" type="button"
-      id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
-      Account
-  </button>
-  <ul class="dropdown-menu shadow" aria-labelledby="accountDropdown">
-      <li><a class="dropdown-item" href="login.html">Login</a></li>
-      <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
-  </ul>
-</div>
-
-
+                    </div>
+                </div>
+                <div class="dropdown ms-2 custom-margin">
+                    <button class="btn btn-primary btn-sm px-3 rounded-pill dropdown-toggle" type="button"
+                        id="accountDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                        Account
+                    </button>
+                    <ul class="dropdown-menu shadow" aria-labelledby="accountDropdown">
+                        <li><a class="dropdown-item" href="login.html">Login</a></li>
+                        <li><a class="dropdown-item" href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
     </div>
     <!-- Navbar End -->
 
-<div class="shopdiy">
-    <h1>Shopify Themes</h1>
+    <div class="container cont1">
+    <!-- Section with Background Image and Overlay -->
+    <section class="hero-section text-center mx-auto wow fadeInUp" data-wow-delay="0.1s"
+        style="position: relative; 
+               background-image: url('img/shopify.png'); 
+               background-size: cover; 
+               background-position: center; 
+               background-repeat: no-repeat; 
+               padding: 120px 20px; 
+               border-radius: 10px;">
+               
+        <div class="overlay" 
+            style="position: absolute; 
+                   top: 0; 
+                   left: 0; 
+                   width: 100%; 
+                   height: 100%; 
+                   background: rgba(0, 0, 0, 0.5); 
+                   border-radius: 10px;">
+        </div>
+
+        <div class="content" style="position: relative; z-index: 2;">
+            <h1 class="display-5 mb-5 text-white">Free Shopify Themes</h1>
+            <p class="mb-5 text-white">
+                Download our professionally designed Shopify themes for free. Perfect for businesses,
+                portfolios, and personal websites.
+            </p>
+        </div>
+    </section>
 </div>
 
+        
 
 
+        <!-- ================= WordPress Themes Section ================= -->
+        <section class="py-5 bg-light mt-5">
+            <div class="themes-layout-container">
+                <!-- Left GIF -->
+                <div class="side-gif">
+                    <img src="img/wordpresspageimage2.jpg" alt="Theme 1 Preview" class="img-fluid">
+
+                </div>
 
 
+                <!-- Themes Content -->
+                <div class="themes-content">
+                    <div class="container-fluid py-4">
+                        <div class="row g-4">
+                         <!-- Theme 1: EnergySpark Theme -->
+<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="service-item bg-light h-100 theme-card">
+        <img src="img/energy.jpg" alt="EnergySpark Theme" class="img-fluid rounded">
+        <h4 class="mb-3">EnergySpark Theme</h4>
+        <p class="mb-4">
+            A clean and modern theme designed for energy and solar companies. 
+            Perfect for showcasing services, products, and sustainable energy solutions with a professional layout.
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="badge bg-primary">Free</span>
+            <a href="downloads/EnergySpark-theme.zip" class="btn btn-primary btn-sm download-btn" data-file="downloads/energyspark-theme.zip">
+                <i class="fa fa-download me-2"></i>Download
+            </a>
+        </div>
+    </div>
+</div>
 
+<!-- Theme 2: EliteEstates Theme -->
+<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+    <div class="service-item bg-light h-100 theme-card">
+        <img src="img/elites.jpg" alt="EliteEstates Theme" class="img-fluid rounded">
+        <h4 class="mb-3">EliteEstates Theme</h4>
+        <p class="mb-4">
+            A luxury real estate theme built for property businesses. 
+            Includes elegant listing pages, image galleries, and contact forms to help clients find their dream homes.
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="badge bg-primary">Free</span>
+            <a href="downloads/EliteEstates-theme.zip" class="btn btn-primary btn-sm download-btn" data-file="downloads/eliteestates-theme.zip">
+                <i class="fa fa-download me-2"></i>Download
+            </a>
+        </div>
+    </div>
+</div>
 
+<!-- Theme 3: Elite Fashion Theme -->
+<div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+    <div class="service-item bg-light h-100 theme-card">
+        <img src="img/business.jpg" alt="Elite Fashion Theme" class="img-fluid rounded">
+        <h4 class="mb-3">Elite Fashion Theme</h4>
+        <p class="mb-4">
+            A stylish and elegant fashion store theme. 
+            Ideal for clothing brands, boutiques, and accessories. 
+            Features product showcases, collections, and an easy shopping experience.
+        </p>
+        <div class="d-flex justify-content-between align-items-center">
+            <span class="badge bg-primary">Free</span>
+            <a href="downloads/elite-fashion-theme.zip" class="btn btn-primary btn-sm download-btn" data-file="downloads/elitefashion-theme.zip">
+                <i class="fa fa-download me-2"></i>Download
+            </a>
+        </div>
+    </div>
+</div>
 
+                          
 
-
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
-        <div class="container py-5">
-            <div class="row g-5">
-
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Our Office</h4>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Atrium House, 574 Manchester Rd, Bury BL9
-                        9SW</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@imperiummedia.co.uk</p>
-                    <div class="d-flex pt-2">
-
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2"
-                            href="https://www.facebook.com/ImperiumMedia.A/"><i class="fab fa-facebook-f"></i></a>
-
-                        <a class="btn btn-square btn-outline-light rounded-circle me-2"
-                            href="https://uk.linkedin.com/company/imperiummedia"><i class="fab fa-linkedin-in"></i></a>
+                           
+                           
+                        </div>
                     </div>
                 </div>
 
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Site Map</h4>
-                    <a class="btn btn-link" href="about.html">About Us</a>
-                    <a class="btn btn-link" href="contact.html">Contact Us</a>
-                    <a class="btn btn-link" href="service.html">Our Services</a>
-                    <a class="btn btn-link" href="jobs.html"> Submit Your CV</a>
-             <a class="btn btn-link" href="termsandconditions.html">Terms and Conditions</a>
+                <!-- Right GIF -->
+                <div class="side-gif">
+                    <img src="img/wordpresspageimage.jpg" alt="Theme 2 Preview" class="img-fluid">
+                </div>
+            </div>
 
-                      <div class="btn btn-link  dropdown">
-                        <a href="#" class=" dropdown-toggle  text-light" data-bs-toggle="dropdown">
-                            Companies
-                        </a>
-                        <div class="dropdown-menu border-light m-0">
-                            <a href="https://www.ahaccountant.co.uk" class="dropdown-item">AH Accountants</a>
-                                                      <a href="aidahsabordinfo.html" class="dropdown-item">AI Dashboard</a>
 
+        </section>
+       
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-dark text-light footer mt-5 py-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5">
+                <div class="row g-5">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Our Office</h4>
+                        <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>Atrium House, 574 Manchester Rd, Bury
+                            BL9 9SW</p>
+                        <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@imperiummedia.co.uk</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2"
+                                href="https://www.facebook.com/ImperiumMedia.A/"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-outline-light rounded-circle me-2"
+                                href="https://uk.linkedin.com/company/imperiummedia"><i
+                                    class="fab fa-linkedin-in"></i></a>
                         </div>
-                    </div>                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="text-white mb-4">Customer Support </h4>
+                    </div>
 
-                    <a class="btn btn-link" href="tel:07718927613">Support Line</a>
-                    <a class="btn btn-link" href="https://linktr.ee/imperiummedia"> Linktree</a>
-                    <a class="btn btn-link" href="https://www.interactive.imperiummedia.org.uk/">Imperium
-                        Interactive</a>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <img class="img-fluid rounded" src="img/googlepartner.png" alt="">
-                     <img class="img-fluid rounded" src="trsut1.png" alt="" style="width: 100%; max-width: 400px;">
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Site Map</h4>
+                        <a class="btn btn-link" href="about.html">About Us</a>
+                        <a class="btn btn-link" href="contact.html">Contact Us</a>
+                        <a class="btn btn-link" href="service.html">Our Services</a>
+                        <a class="btn btn-link" href="jobs.html"> Submit Your CV</a>
+                        <a class="btn btn-link" href="termsandconditions.html">Terms and Conditions</a>
+                        <div class="btn btn-link dropdown">
+                            <a href="#" class="dropdown-toggle text-light" data-bs-toggle="dropdown">Companies</a>
+                            <div class="dropdown-menu border-light m-0">
+                                <a href="https://www.ahaccountant.co.uk" class="dropdown-item">AH Accountants</a>
+                                <a href="https://www.tiktok.com/@interactivebyimperium"
+                                    class="dropdown-item">Interactive By Imperium</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="text-white mb-4">Customer Support</h4>
+                        <a class="btn btn-link" href="tel:07718927613">Support Line</a>
+                        <a class="btn btn-link" href="https://linktr.ee/imperiummedia"> Linktree</a>
+                        <a class="btn btn-link" href="https://www.interactive.imperiummedia.org.uk/">Imperium
+                            Interactive</a>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <img class="img-fluid rounded mb-3" src="img/googlepartner.png" alt="Google Partner">
+                        <img class="img-fluid rounded" src="trsut1.png" alt="" style="width: 100%; max-width: 400px;">
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- Footer End -->
+        <!-- Footer End -->
 
-
-
-
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    &copy; <a class="border-bottom" href="#">Imperium Media </a>, All Right Reserved.
-                    <br>
-                                   </div>
-
+        <!-- Copyright Start -->
+        <div class="container-fluid copyright py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                        &copy; <a class="border-bottom" href="#">Imperium Media Enterprises </a>, All Right Reserved.
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-    <!-- Copyright End -->
+        <!-- Copyright End -->
 
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
+                class="bi bi-arrow-up"></i></a>
 
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-lg btn-primary btn-lg-square rounded-circle back-to-top"><i
-            class="bi bi-arrow-up"></i></a>
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="lib/wow/wow.min.js"></script>
+        <script src="lib/easing/easing.min.js"></script>
+        <script src="lib/waypoints/waypoints.min.js"></script>
+        <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+        <script src="lib/counterup/counterup.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // Select all download buttons
+                const downloadButtons = document.querySelectorAll(".download-btn");
 
-    <!-- JavaScript Libraries -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
+                downloadButtons.forEach(button => {
+                    button.addEventListener("click", function (e) {
+                        e.preventDefault(); // Prevent direct download
 
-    <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+                        const fileUrl = this.getAttribute("data-file");
 
-<script src="translate.js"></script>
-<script type="text/javascript"
-  src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
-</script>    <!-- Brevo Conversations {literal} -->
-    <script>
-        (function (d, w, c) {
-            w.BrevoConversationsID = '657ce0425a56fa4fb66772dd';
-            w[c] = w[c] || function () {
-                (w[c].q = w[c].q || []).push(arguments);
-            };
-            var s = d.createElement('script');
-            s.async = true;
-            s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
-            if (d.head) d.head.appendChild(s);
-        })(document, window, 'BrevoConversations');
-    </script>
-    <!-- /Brevo Conversations {/literal} -->
+                        Swal.fire({
+                            title: "Would you like to support a cause?",
+                            html: `
+                                <p style="font-size: 15px;">It means you can give users a choice to support a charity like RSPCA or Mind when they download your WordPress theme.</p>
+                                <p style="font-size: 14px;">You're not donating money  just showing support or awareness for a good cause </p>
+                            `,
+                            icon: "question",
+                            showCancelButton: true,
+                            confirmButtonText: "Support RSPCA ",
+                            denyButtonText: "Support Mind ",
+                            cancelButtonText: "No thanks",
+                            showDenyButton: true,
+                            reverseButtons: true,
+                            width: "600px"
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Swal.fire("Thank you!", "You supported RSPCA ", "success")
+                                    .then(() => {
+                                        window.location.href = fileUrl;
+                                    });
+                            } else if (result.isDenied) {
+                                Swal.fire("Thank you!", "You supported Mind ", "success")
+                                    .then(() => {
+                                        window.location.href = fileUrl;
+                                    });
+                            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                                Swal.fire("Download canceled", "You chose not to download the theme.", "info");
+                            }
+                        });
+                    });
+                });
+            });
+        </script>
+
+        <!-- Template Javascript -->
+        <script src="js/main.js"></script>
+
+        <script src="translate.js"></script>
+        <script type="text/javascript"
+            src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit">
+            </script> <!-- Brevo Conversations {literal} -->
+        <script>
+            (function (d, w, c) {
+                w.BrevoConversationsID = '657ce0425a56fa4fb66772dd';
+                w[c] = w[c] || function () {
+                    (w[c].q = w[c].q || []).push(arguments);
+                };
+                var s = d.createElement('script');
+                s.async = true;
+                s.src = 'https://conversations-widget.brevo.com/brevo-conversations.js';
+                if (d.head) d.head.appendChild(s);
+            })(document, window, 'BrevoConversations');
+        </script>
+        <!-- /Brevo Conversations {/literal} -->
 </body>
 
 </html>
